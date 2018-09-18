@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Using D3 in Ext JS | Ext JS 6.2.0 </title>
+    <!--  Generated on July, 3 2018 at 23:17 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta property="og:image" content="../../../../assets/images/sencha-200.png" />
+    <meta property="og:title" content="Using D3 in Ext JS | Ext JS 6.2.0 " />
+    <meta property="og:description" content="Ext JS - API documentation from Sencha" />
+    <meta property="og:site_name" content="Sencha Documentation" />
+    <meta property="og:url" content="" />
+    <meta name="description" content="Ext JS - API documentation from Sencha">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/create-app-html-app.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../../../../assets/css/../../../node_modules/tachyons/css/tachyons.css"> -->
+
+
+</head>
+<body class="new-docs  is-guide  has-guides   has-api tree-shown ">
+
+    <!-- SVG Sprite -->
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden;" aria-hidden="true">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false">
+            <symbol id="ripply-scott" viewBox="0 0 100 100">
+                <circle id="ripple-shape" cx="1" cy="1" r="1" />
+            </symbol>
+        </svg>
+    </div>
+    <!-- /end sprite -->
+
+    <script type="text/javascript">
+        function getOS() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return 'ios';
+            } else if(userAgent.match(/Android/i)) {
+                return 'android';
+            }
+        }
+
+        var isIE8 = false;
+
+        document.body.className += ' ' + getOS();
+
+        window.DocsApp = window.DocsApp || {};
+        DocsApp.meta   = {"majorVer":"6","prodObj":{"3":{"link":"http://docs.sencha.com/{prod}/{ver}/#!/api/{page}"},"4":{"link":"http://docs.sencha.com/{prod}/{ver}/#!/api/{page}"},"title":"Ext JS","currentVersion":"6.6.0","toolkit":{"6":{"toolkits":["modern","classic"],"defaultToolkit":"modern"}},"productMenu":["6.6.0","6.5.3","6.5.2","6.5.1","6.5.0","6.2.1","6.2.0","6.0.2","6.0.1","6.0.0","5.1.4","5.1.3","5.1.2","5.1.1","5.1.0","5.0.1","5.0.0","4.2.6","4.1.3","4.0.7","3.4.0"],"guideSearchPartners":["cmd"],"hasVersions":true,"hasApi":true,"theme":{"5.0.0":"crisp","5.0.1":"crisp","5.1.0":"crisp","5.1.1":"crisp","5.1.2":"crisp","5.1.3":"crisp","5.1.4":"crisp","6.0.0":{"classic":"triton","modern":"triton"},"6.0.1":{"classic":"triton","modern":"triton"},"6.0.2":{"classic":"triton","modern":"triton"},"6.2.0":{"classic":"triton","modern":"triton"},"6.2.1":{"classic":"triton","modern":"triton"},"6.2.2":{"classic":"triton","modern":"triton"},"6.5.0":{"classic":"triton","modern":"material"},"6.5.1":{"classic":"triton","modern":"material"},"6.5.2":{"classic":"triton","modern":"material"},"6.5.3":{"classic":"triton","modern":"material"},"6.6.0":{"classic":"triton","modern":"material"}},"repo":"SDK","remoteUrl":"git@github.com:extjs/{repo}.git","addlRepos":["package-loader"],"addlRemoteUrls":"git@github.com:sencha/{repo}.git","remotes":{"7.0.0":{"branch":"ext-7.0.x"},"6.6.0":{"branch":"ext-6.6.x"},"6.5.3":{"branch":"ext-6.5.x"},"6.5.2":{"branch":"ext-6.5.x"},"6.5.1":{"branch":"ext-6.5.1-docs"},"6.5.0":{"branch":"ext-6.5.0-docs"},"6.2.2":{"branch":"ext-6.2.x"},"6.2.1":{"branch":"ext-6.2.1-docs"},"6.2.0":{"branch":"ext-6.2.0-docs"},"6.0.2":{"branch":"ext-6.0.x"},"6.0.1":{"branch":"ext-6.0.1-docs"},"6.0.0":{"branch":"ext-6.0.0-docs"},"5.1.4":{"branch":"ext-5.1.x"},"5.1.3":{"branch":"ext-5.1.3-docs"},"5.1.2":{"branch":"ext-5.1.2-docs"},"5.1.1":{"branch":"ext-5.1.1-docs"},"5.1.0":{"branch":"ext-5.1.0-docs"},"5.0.1":{"branch":"ext-5.0.1-docs"},"5.0.0":{"branch":"ext-5.0.0-docs"}}},"hasApi":true,"hasVersions":true,"hasToolkits":2,"toolkits":["modern","classic"],"toolkit":"classic","hasGuides":true,"title":"Ext JS","version":"6.2.0","pageType":"guide","product":"extjs","apiProduct":"extjs","apiVersion":"6.2.0","exceptions":{"touch":["2.3.1","2.2.1","2.1.1","2.0.1"],"extjs":["3.4.0","4.0.7","4.1.3","4.2.6"]},"searchPartnerVersions":{"cmd":{"6.6.0":"6.6.0","6.5.3":"6.6.0","6.5.2":"6.6.0","6.5.1":"6.6.0","6.5.0":"6.5.0","6.2.1":"6.5.0","6.2.0":"6.5.0","6.0.2":"6.5.0","6.0.1":"6.5.0","6.0.0":"6.5.0","5.1.4":"6.5.0","5.1.3":"6.5.0","5.1.2":"6.5.0","5.1.1":"6.5.0","5.1.0":"6.5.0","5.0.1":"6.5.0","5.0.0":"6.5.0","4.2.6":"6.5.0","4.1.3":"6.5.0","4.0.7":"6.5.0","3.4.0":"6.5.0"}},"navTreeName":"Guides","myId":"core_concepts/d3","rootPath":"../../","pageName":"Using D3 in Ext JS","docsRootPath":"../../../../"};
+    </script>
+    <!--[if IE 8]>
+    <script type='text/javascript'>
+        isIE8 = true;
+    </script>
+    <![endif]-->
+    <script type="text/javascript">
+        if (!isIE8) {
+            document.write('<script type=\"text/javascript\" src=\"../../../../assets/js/prism.js\"><\/script>');
+        }
+        if (DocsApp.meta.hasGuides) {
+            document.write('<script type=\"text/javascript\" src=\"../../../../assets/js/extjs-6.2.0-guidesTree.js\"><\/script>');
+        }
+        if (DocsApp.meta.hasApi) {
+            document.write('<script type=\"text/javascript\" src=\"../../../../assets/js/extjs-6.2.0-apiTree.js\"><\/script>');
+        }
+    </script>
+    <script type="text/javascript" src="../../../../assets/js/ace.js"></script>
+    <script type="text/javascript" src="../../../../assets/js/create-app-html-app.js"></script>
+    <script type="text/javascript" src="../../../../assets/js/productMenu.js"></script>
+
+    <div id="help-wrap">
+        <div class="help-header">
+            Docs Help
+            <div id="help-close" class="icon-btn">
+                <i class="fa fa-close"></i>
+            </div>
+        </div>
+        <div class="classText">
+            <div class="toc classMeta">
+                <h2>Contents</h2>
+                <a class="toc-page-h2" href="#terms-icons-and-labels">Terms, Icons, and Labels</a>
+                <a class="toc-page-h3" href="#access-levels">Access Levels</a>
+                <a class="toc-page-h3" href="#member-types">Member Types</a>
+                <a class="toc-page-h3" href="#member-syntax">Member Syntax</a>
+                <a class="toc-page-h3" href="#member-flags">Member Flags</a>
+                <a class="toc-page-h3" href="#class-icons">Class Icons</a>
+                <a class="toc-page-h3" href="#member-icons">Member Icons</a>
+                <a class="toc-page-h2" href="#navigation-and-features">Navigation and Features</a>
+                <a class="toc-page-h3" href="#class-member-quick-nav-menu">Class Member Quick-Nav Menu</a>
+                <a class="toc-page-h3" href="#getter-and-setter-methods">Getter and Setter Methods</a>
+                <a class="toc-page-h3" href="#history-bar">History Bar</a>
+                <a class="toc-page-h3" href="#search-and-filters">Search and Filters</a>
+                <a class="toc-page-h3" href="#api-doc-class-metadata">API Doc Class Metadata</a>
+                <a class="toc-page-h3" href="#expanding-and-collapsing-examples-and-class-members">Expanding and Collapsing Examples and Class Members</a>
+                <a class="toc-page-h3" href="#desktop-vs-mobile-view">Desktop -vs- Mobile View</a>
+                <a class="toc-page-h3" href="#viewing-the-class-source">Viewing the Class Source</a>
+            </div>
+            <h2 id="terms-icons-and-labels">Terms, Icons, and Labels</h2>
+            <p>Many classes have shortcut names used when creating (instantiating) a class with a
+                configuration object.  The shortcut name is referred to as an <code>alias</code> (or <code>xtype</code> if the
+                class extends Ext.Component).  The alias/xtype is listed next to the class name of
+                applicable classes for quick reference.</p>
+            <h3 id="access-levels">Access Levels</h3>
+            <p>Framework classes or their members may be specified as <code>private</code> or <code>protected</code>.  Else,
+                the class / member is <code>public</code>.  <code>Public</code>, <code>protected</code>, and <code>private</code> are access
+                descriptors used to convey how and when the class or class member should be used.</p>
+            <ul>
+                <li><p><strong>Public</strong> classes and class members are available for use by any other class or
+                    application code and may be relied upon as a stable and persistent within major product
+                    versions.  Public classes and members may safely be extended via a subclass.</p>
+                </li>
+                <li><p><strong>Protected</strong> class members are stable <code>public</code> members intended to be used by the
+                    owning class or its subclasses.  Protected members may safely be extended via a subclass.</p>
+                </li>
+                <li><p><strong>Private</strong> classes and class members are used internally by the framework and are not
+                    intended to be used by application developers.  Private classes and members may change or
+                    be omitted from the framework at any time without notice and should not be relied upon in
+                    application logic.</p>
+                </li>
+            </ul>
+            <h3 id="member-types">Member Types</h3>
+            <ul>
+                <li><strong>Config</strong> - The configuration options for a class.</li>
+                <li><strong>Property</strong> - Set once a class is instantiated. *See Read Only below.</li>
+                <li><strong>Method</strong> - Actions that can be performed by a class.  Methods should be read as
+                    instance methods and can only be called from a instance of a given class.  Static methods
+                    that can be called directly from the class itself will have a <code>static</code> label next to the
+                    method name.  *See Static below.</li>
+                <li><strong>Event</strong> - Events are specific to the framework event system allowing for classes to
+                    programmatically raise an event to be handled by one or more event handler methods.  DOM
+                    events, while handled by the framework event system, are not specifically described
+                    within the API documentation.  *For DOM events refer to the
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Events">event reference</a> page from MDN.</li>
+                <li><strong>Theme Variable</strong> - Variables used by the visual theme engine employed by the
+                    framework.</li>
+                <li><strong>Theme Mixin</strong> - Functions used by the visual theme engine employed by the framework
+                    and may use values set in various Theme Variables.</li>
+            </ul>
+            <h3 id="member-syntax">Member Syntax</h3>
+            <p>Below is an example class member that we can disect to show the syntax of a class member
+                (the lookupComponent method as viewed from the Ext.button.Button class in this case).</p>
+            <div style="position: relative;" class="show-inherited show-protected members">
+                <div style="border: 1px solid #E4E4E4;" class="classmembers member-protected isNotStatic isInherited member-expanded" data-member-name="lookupComponent">
+                    <div class="collapse-toggle">
+                        <i class="fa fa-caret-right"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="source-class"><a href="javascript:void(0);">Ext.container.Container</a><div class="viewSource"><a href="javascript:void(0);"></a><a target="_blank" href="javascript:void(0);">view source</a></div></div>
+                    <div class="member-header">
+                        <a href="javascript:void(0);" class="member-name-link"><span data-ref="method-lookupComponent" class="member-name"><strong>lookup</strong>Component</span></a>
+                        <span class="params-list"> ( item )</span> : <span class="memberType">Ext.Component</span>
+                        <div class="member-tags"><span class="protected">protected</span></div>
+                    </div>
+                    <p>Called when a raw config object is added to this container either during initialization of the <a href="javascript:void(0);">items</a> config,
+                        or when new items are <a href="javascript:void(0);">added), or {@link #insert inserted</a>.</p>
+                    <p>This method converts the passed object into an instanced child component.</p>
+                    <p>This may be overridden in subclasses when special processing needs to be applied to child creation.</p>
+                    <div class="detail-header">Parameters</div>
+                    <p><span class="params-list">item</span> :
+                        <span class="memberType">&nbsp;Object</span>
+                    </p>
+                    <div class="params-desc"><p>The config object being added.</p></div>
+                    <div class="detail-header">Returns</div>
+                    <span style="margin-left:12px;" class="memberType">Ext.Component</span>
+                    <div class="return-desc"><p>The component to be added.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <p>Let's look at each part of the member row:</p>
+            <ul>
+                <li><strong>Expand/Collapse</strong> - On the left-hand size of the member row is a control used to
+                    expand and collapse each member row to show / hide member details.</li>
+                <li><strong>Member Name</strong> - The name of the class member (<code>lookupComponent</code> in this example)</li>
+                <li><strong>Method Param</strong> - Any required or optional params used by a method (or passed to an
+                    event handler method) will be listed next to the method name within parenthesis
+                    (<code>( item )</code> in this example)</li>
+                <li><strong>Return type</strong> - The class instance or javascript object returned by the method or
+                    property (<code>Ext.Component</code> in this case).  This may be omitted for methods that do not
+                    return anything other than <code>undefined</code> or may display as multiple possible values
+                    separated by a forward slash <code>/</code> signifying that what is returned may depend on the
+                    results of the method call (i.e. a method may return a Component if a get method calls is
+                    successful or <code>false</code> if unsuccessful which would be displayed as
+                    <code>Ext.Component/Boolean</code>).</li>
+                <li><strong>Flags</strong> - Any flags applicable to the member will be displayed next (<code>PROTECTED</code> in
+                    this example - see the Flags section below)</li>
+                <li><strong>Member Origin</strong> - On the right-hand side of the member row is the class where the
+                    member was initially described (<code>Ext.container.Container</code> in this example).  The source
+                    class will be displayed as a blue link if the member originates from the current class
+                    and gray if it is inherited from an ancestor or mixed-in class.</li>
+                <li><strong>Member Source</strong> - On the right-hand side below the member origin class is a link to
+                    view the member's source (<code>view source</code> in the example)</li>
+                <li><strong>Params List</strong> - Each param for a class method will be listed using the same name
+                    found above in parenthesis, the type of class or object expected, and a description of
+                    the param (<code>item : Object</code> in the example).</li>
+                <li><strong>Returns</strong> - If a class returns a value other than <code>undefined</code> a "Returns" section
+                    will note the type of class or object returned and a description (<code>Ext.Component</code> in the
+                    example)</li>
+                <li><strong>Since</strong> (<em>not shown in the example</em>) - Some members will show which version of the
+                    product the member was first introduced (i.e. <code>Available since 3.4.0</code> - <em>not pictured in
+                        the example</em>) just after the member description</li>
+                <li><strong>Default</strong> (<em>not shown in the example</em>) - Configs often show the default config value
+                    to be applied to a class instance if not overridden (i.e. <code>Defaults to: false</code>)</li>
+            </ul>
+            <h3 id="member-flags">Member Flags</h3>
+            <p>The API documentation uses a number of flags to further commnicate the class member's
+                function and intent.  The label may be represented by a text label, an abbreviation, or
+                an icon.</p>
+            <ul>
+                <li><strong>Required</strong> - Required config when instantiating a class</li>
+                <li><strong>Bindable</strong> - The config has a setter which allows this config to be set via ViewModel
+                    binding</li>
+                <li><strong>Read Only</strong> - The property may be read, but cannot be used to configure /
+                    re-configure a class instance at runtime</li>
+                <li><strong>Singleton</strong> - Singleton classes are instantiated immediately once defined and may not
+                    be instantiated manually</li>
+                <li><strong>Static</strong> - A static method or property is a method or property belonging to the class
+                    itself, not an instance of the class</li>
+                <li><strong>Chainable</strong> - Refers to methods that return the class instance back when called.<br>This enables chained method calls like: <code>classInstance.method1().method2().etc();</code></li>
+                <li><strong>Deprecated</strong> - A class or member that is scheduled for removal in a future
+                    framework version and is provided in the current version for backwards compatibility.<br>Deprecated classes and members will have a message directing you to the preferred class /
+                    method going forward.</li>
+                <li><strong>Removed</strong> - A removed class or member that exists in documentation only as a
+                    reference for users upgrading between framework versions</li>
+                <li><strong>Template</strong> - A method defined within a base class designed to be overridden by
+                    subclasses</li>
+                <li><strong>Abstract</strong> - A class or member may be be defined as abstract.  Abstract classes and
+                    members establish a class structure and provide limited, if any, code.  Class-specific
+                    code will be furnished via overrides in subclasses.</li>
+                <li><strong>Preventable</strong> - Events marked preventable will not fire if <code>false</code> is returned from
+                    an event handler</li>
+            </ul>
+            <h3 id="class-icons">Class Icons</h3>
+            <p><span class="icon-demo class-icon fa fa-cube"></span> - Indicates a framework class  </p>
+            <p><span class="icon-demo singleton-icon fa fa-cube"></span> - A singleton framework class. *See the
+                singleton flag for more information  </p>
+            <p><span class="icon-demo component-icon fa fa-gear"></span> - A component-type framework class (any
+                class within the Ext JS framework that extends Ext.Component)  </p>
+            <p><span class="icon-demo display-new"></span> - Indicates that the class, member, or guide
+                is new in the currently viewed version</p>
+            <h3 id="member-icons">Member Icons</h3>
+            <p><span class="icon-demo fa fa-cubes"></span> - Indicates a class member of type <code>config</code>  </p>
+            <p><span class="icon-demo fa fa-book"></span> - Indicates a class member of type <code>property</code>  </p>
+            <p><span class="icon-demo fa fa-object-group"></span> - Indicates a class member of type
+                <code>method</code>  </p>
+            <p><span class="icon-demo fa fa-bolt"></span> - Indicates a class member of type <code>event</code>  </p>
+            <p><span class="icon-demo fa fa-paint-brush"></span> - Indicates a class member of type
+                <code>theme variable</code>  </p>
+            <p><span class="icon-demo fa fa-tint"></span> - Indicates a class member of type
+                <code>theme mixin</code>  </p>
+            <p><span class="icon-demo display-new"></span> - Indicates that the class, member, or guide
+                is new in the currently viewed version</p>
+            <h2 id="navigation-and-features">Navigation and Features</h2>
+            <h3 id="class-member-quick-nav-menu">Class Member Quick-Nav Menu</h3>
+            <p>Just below the class name on an API doc page is a row of buttons corresponding to the
+                types of members owned by the current class.  Each button shows a count of members by
+                type (this count is updated as filters are applied).  Clicking the button will navigate
+                you to that member section.  Hovering over the member-type button will reveal a popup
+                menu of all members of that type for quick navigation.</p>
+            <h3 id="getter-and-setter-methods">Getter and Setter Methods</h3>
+            <p>Getting and setter methods that correlate to a class config option will show up in the
+                methods section as well as in the configs section of both the API doc and the member-type
+                menus just beneath the config they work with.  The getter and setter method documentation
+                will be found in the config row for easy reference.</p>
+            <h3 id="history-bar">History Bar</h3>
+            <p>Your page history is kept in localstorage and displayed (using the available real estate)
+                just below the top title bar.  By default, the only search results shown are the pages
+                matching the product / version you're currently viewing.  You can expand what is
+                displayed by clicking on the <span class="icon-demo history-config"></span> button on the
+                right-hand side of the history bar and choosing the "All" radio option.  This will show
+                all recent pages in the history bar for all products / versions.</p>
+            <p>Within the history config menu you will also see a listing of your recent page visits.
+                The results are filtered by the "Current Product / Version" and "All" radio options.
+                Clicking on the <span class="icon-demo history-clear"></span> button will clear the history bar as
+                well as the history kept in local storage.</p>
+            <p>If "All" is selected in the history config menu the checkbox option for "Show product
+                details in the history bar" will be enabled.  When checked, the product/version for each
+                historic page will show alongside the page name in the history bar.  Hovering the cursor
+                over the page names in the history bar will also show the product/version as a tooltip.</p>
+            <h3 id="search-and-filters">Search and Filters</h3>
+            <p>Both API docs and guides can be searched for using the search field at the top of the
+                page.</p>
+            <p>On API doc pages there is also a filter input field that filters the member rows
+                using the filter string.  In addition to filtering by string you can filter the class
+                members by access level, inheritance, and read only.  This is done using the checkboxes at the top of
+                the page.</p>
+            <p>The checkbox at the bottom of the API class navigation tree filters the class list to
+                include or exclude private classes.</p>
+            <p>Clicking on an empty search field will show your last 10 searches for quick navigation.</p>
+            <h3 id="api-doc-class-metadata">API Doc Class Metadata</h3>
+            <p>Each API doc page (with the exception of Javascript primitives pages) has a menu view of
+                metadata relating to that class.  This metadata view will have one or more of the
+                following:</p>
+            <ul>
+                <li><strong>Alternate Name</strong> - One or more additional class name synonymns (in Ext JS 6.0.0 the
+                    <code>Ext.button.Button</code> class has an alternate class name of <code>Ext.Button</code>).  Alternate class
+                    names are commonly maintained for backward compatibility.</li>
+                <li><strong>Hierarchy</strong> - The hierararchy view lists the inheritance chain of the current class
+                    up through its ancestor classes up to the root base class.</li>
+                <li><strong>Mixins</strong> - A list of classes that are mixed into the current class</li>
+                <li><strong>Inherited Mixins</strong> - A list of classes that are mixed into an ancestor of the current
+                    class</li>
+                <li><strong>Requires</strong> - All classes required to be defined for the class to be instantiated</li>
+                <li><strong>Uses</strong> - A list of classes potentially used by the class at some point in its
+                    lifecycle, but not necessarily requried for the class to initially be instantiated</li>
+                <li><strong>Subclasses</strong> - Classes that extend the current class</li>
+            </ul>
+            <h3 id="expanding-and-collapsing-examples-and-class-members">Expanding and Collapsing Examples and Class Members</h3>
+            <p>Runnable examples (Fiddles) are expanded on a page by default.  You can collapse and
+                expand example code blocks individually using the arrow on the top-left of the code
+                block.  You can also toggle the collapse state of all examples using the toggle button on
+                the top-right of the page.  The toggle-all state will be remembered between page loads.</p>
+            <p>Class members are collapsed on a page by default.  You can expand and collapse members
+                using the arrow icon on the left of the member row or globally using the expand /
+                collapse all toggle button top-right.</p>
+            <h3 id="desktop-vs-mobile-view">Desktop -vs- Mobile View</h3>
+            <p>Viewing the docs on narrower screens or browsers will result in a view optimized for a
+                smaller form factor.  The primary differences between the desktop and "mobile" view are:</p>
+            <ul>
+                <li>Global navigation will be located in a menu on the left-hand side accessible via the
+                    hamburger menu icon.  The menu houses the following (on most pages):<ul>
+                        <li>The name of the current product (as a link to the product landing page)</li>
+                        <li>The Sencha icon used to navigate back to the documentation home page</li>
+                        <li>The product menu drop-down button</li>
+                        <li>Tabs of navigation trees for the API docs and guides</li>
+                    </ul>
+                </li>
+                <li>Current context navigation and tools is located on the right-hand side accessible via
+                    the gear icon.  The context menu houses teh following:<ul>
+                        <li>The global search input field</li>
+                        <li>(<em>API doc</em>) A "Filters" tab with the member filter, expand / collapse all examples
+                            button, expand / collapse all member rows button, the access level filter checkboxes,
+                            and the counts of each member</li>
+                        <li>(<em>API doc</em>) A "Related Classes" tab containing the menu of metadata related to the
+                            current class</li>
+                        <li>(<em>Guides</em>) The table of contents for the guide</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="viewing-the-class-source">Viewing the Class Source</h3>
+            <p>The class source can be viewed by clicking on the class name at the top of an API doc
+                page.  The source for class members can be viewed by clicking on the "view source" link
+                on the right-hand side of the member row.</p>
+    
+        </div>
+    </div>
+
+    <div id="header">
+        <div class="home-link">
+            <a href="http://docs.sencha.com"><span class="fa fa-book"></span></a>
+        </div>
+        <div class="logo">
+            <a href="https://www.sencha.com"><img height="32" src="../../../../assets/images/sencha_logo_thumb.png"/></a>
+        </div>
+        <span id="mobile-main-nav-menu-btn" class="fa fa-bars"></span>
+        <span data-tip="Product / Version Menu" class="fa fa-angle-down product-menu-btn product-menu-btn-wrap tooltip-tl-bl tooltip landing-product-menu-btn">
+            <div class="callout callout-b"></div>
+        </span>
+            <div class="page-title">Using D3 in Ext JS</div>
+
+        <span id="mobile-context-menu-btn" class="fa fa-cog"></span>
+    </div>
+
+    <div id="centerContent">
+        <div id="history-nav">
+            <span id="history-config" class="icon-btn history-config tooltip tooltip-tr-br" data-tip="Configure / Clear History">
+                <i class="fa fa-history"></i>
+                <div class="callout callout-b"></div>
+            </span>
+        </div>
+        <div id="class-tree-ct" class="class-tree">
+            <h2 class="product-header">
+                <div class="home-link">
+                    <a href="http://docs.sencha.com"><span class="fa fa-book"></span></a>
+                </div>
+                <div class="logo">
+                    <a href="https://www.sencha.com"><img src="../../../../assets/images/sencha_logo1x.png"/></a>
+                </div>
+                <a href="../../index.html">Ext JS 6.2.0 </a>
+                <span data-tip="Product / Version Menu" class="fa fa-angle-down product-menu-btn product-menu-btn-wrap tooltip tooltip-tl-bl"><div class="callout callout-b"></div></span>
+            </h2>
+            <div id="tree-header" class="pre-load">
+                <div id="hide-class-tree" class="icon-btn">
+                    <i class="fa fa-close"></i>
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <div id="tree-scroller">
+                <div id="tree" class="show-private show-protected is-tree ">
+                    <div id="tree-sub-header"></div>
+                </div>
+                    <div class="private-class-toggle-ct">
+                        <label for="private-class-toggle" class="pointer gray">Show private classes</label>
+                        <input id="private-class-toggle" type="checkbox" name="privateClassToggle" />
+                    </div>
+            </div>
+        </div>
+
+        <a href="#" id="back-to-top">
+            <div class="fa fa-angle-up"></div>
+            <br>
+            top
+        </a>
+
+        <div id="rightMembers">
+<div class="context-menu-ct">
+    <div class="context-header">
+        <div id="hide-context-menu" class="fa fa-caret-right"></div>
+    </div>
+
+    <div class="search">
+        <form autocomplete="off">
+                <div class="toolkit-search-filter-ct">
+                    <span id="modern-search-filter" class="tooltip tooltip-tr-br active" data-tip="Include Modern Search Results"><div class="callout callout-b"></div></span>
+                    <span id="classic-search-filter" class="tooltip tooltip-tr-br active" data-tip="Include Classic Search Results"><div class="callout callout-b"></div></span>
+                </div>
+    
+            <input type="text" type="search" placeholder="search" id="searchtext" tabindex="1">
+            <i id="filtersubmit" class="fa fa-search"></i>
+            <span id="help-btn" data-tip="Docs Help" class="icon-btn tooltip tooltip-tr-br"><div class="callout callout-b"></div>
+                <i class="fa fa-question fa-inverse"></i>
+            </span>
+        </form>
+    </div>
+
+    <div id="toc-context-ct">
+        <!-- context content added at runtime -->
+    </div>
+</div>
+<div class="guide-body-wrap">
+    <div class="body-wrap-inner">
+        <div id="toggleExamples" class="icon-btn tooltip tooltip-tr-br" data-collapse="Collapse All Examples" data-expand="Expand All Examples">
+            <i class="fa fa-code"></i>
+            <div class="callout callout-b"></div>
+        </div>
+        <div class="classText">
+                <div class="toc">
+                    <h2>Contents</h2>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_introduction">Introduction</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_using_the_d3_package">Using the D3 Package</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_d3_without_a_cmd_application">D3 Without a Cmd Application</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_components">Components</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_hierarchical_components">Hierarchical Components</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_tree">Tree</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_sunburst">Sunburst</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_pack">Pack</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_treemap">TreeMap</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_heatmap_component">HeatMap Component</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_custom_components">Custom Components</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_scenes">Scenes</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_canvas">Canvas</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_theming">Theming</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_events">Events</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_preferred_method">Preferred Method</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_fly_method">Fly Method</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_each_method">Each Method</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_interactions">Interactions</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-d3_-_tooltips">Tooltips</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_view_controller_method">View Controller Method</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_view_method">View Method</a>
+                        <a class="toc-page-h3 " href="#core_concepts-_-d3_-_pivoting_with_d3">Pivoting with D3</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_ext_pivot_d3_heatmap">Ext.pivot.d3.HeatMap</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_ext_pivot_d3_treemap">Ext.pivot.d3.TreeMap</a>
+                        <a class="toc-page-h4 " href="#core_concepts-_-d3_-_ext_pivot_d3_container">Ext.pivot.d3.Container</a>
+                </div>
+                <span class="guide-tags"><span class="premium">premium</span></span>
+            <h1 id="core_concepts-_-d3_-_using_d3_in_ext_js">Using D3 in Ext JS<a class="quick-link" href="#core_concepts-_-d3_-_using_d3_in_ext_js"></a></h1>
+<h2 id="core_concepts-_-d3_-_introduction">Introduction<a class="quick-link" href="#core_concepts-_-d3_-_introduction"></a></h2>
+<p>Presenting data in a clear and compelling way is an important job for any application. D3 is an extremely popular 
+choice for data visualization. The new <strong>d3</strong> package makes it simpler than ever to integrate D3 into your 
+Ext JS application.</p>
+<p>In this guide, we will explore the various D3 components that are available in Ext JS.</p>
+<h2 id="core_concepts-_-d3_-_using_the_d3_package">Using the D3 Package<a class="quick-link" href="#core_concepts-_-d3_-_using_the_d3_package"></a></h2>
+<p>Your D3 package should be located within the packages folder that came with your Ext JS Premium purchase.  This 
+packages folder should be copied to the root packages directory of the ext folder you use to generate applications. </p>
+<p>For instance, if you have generated your application using Sencha Cmd, you would move the d3 package from:</p>
+<pre><code class="language-javascript">{premiumLocation}/ext/packages/d3
+</code></pre><p>to:</p>
+<pre><code class="language-javascript">{yourApplication}/ext/packages/d3
+</code></pre><p>or:</p>
+<pre><code class="language-javascript">{yourWorkspace}/ext/packages/d3
+</code></pre><p>Once your package is in appropriately located, you&#39;ll need to modify your <code>app.json</code> file.  Open <code>{appDir}/app.json</code> 
+and add &quot;d3&quot; to the &quot;requires&quot; block.  It should now look like similar to the following code snippet:</p>
+<pre><code class="language-javascript">&quot;requires&quot;: [
+   &quot;d3&quot;
+],
+</code></pre><p>Do keep in mind that your requires block may contain other items depending on your default theme.</p>
+<p>Your application should now be ready to use D3!</p>
+<p><strong>Note:</strong> The D3 package is only available in Ext Premium.  For more information about Ext Premium and our other 
+products, please check out the <a href="https://www.sencha.com/products/extjs/newpkg/" class="external-link" target="_blank">products page</a>.</p>
+<h3 id="core_concepts-_-d3_-_d3_without_a_cmd_application">D3 Without a Cmd Application<a class="quick-link" href="#core_concepts-_-d3_-_d3_without_a_cmd_application"></a></h3>
+<p>You can also utilize the d3 package without a Cmd built application.  However, you may need to use Cmd to build the 
+initial CSS/JS builds if they do not appear in your package&#39;s build folder.</p>
+<p>We generally try to include pre-built packages, but sometimes they slip through the cracks and are not available 
+until the next release.</p>
+<p>Building a package is quick and simple.  The process produces a singular JS/CSS file for inclusion in your non-Cmd 
+application.  To build these files, issue the following command from your CLI:</p>
+<pre><code class="language-javascript">//target a specific theme
+sencha package build {themeName}
+</code></pre><p>Classic themes will just be theme names (triton, neptune, etc).  </p>
+<p>Modern themes will be prepended with &quot;modern-&quot; (modern-neptune).</p>
+<p>or</p>
+<pre><code class="language-javascript">//build for all themes
+sencha package build
+</code></pre><p>You should now have a build folder that contains the following built files:</p>
+<pre><code class="language-javascript">d3/{toolkit}/d3.js
+d3/{toolkit}/{theme}/resources/d3-all.css
+</code></pre><p>You can now include these outputs by whatever method you are using.</p>
+<h2 id="core_concepts-_-d3_-_components">Components<a class="quick-link" href="#core_concepts-_-d3_-_components"></a></h2>
+<p>Integrating D3 begins with the choice of rendering technology:
+ <a href="http://docs.sencha.com/extjs/6.2.0-classic/Ext.d3.svg.Svg.html" class="external-link" target="_blank">SVG</a> or 
+ <a href="http://docs.sencha.com/extjs/6.2.0-classic/Ext.d3.canvas.Canvas.html" class="external-link" target="_blank">Canvas</a>. This is because D3 is not a 
+ drawing abstraction library (like <code>Ext.draw.*</code>) and so the nature of the drawing surface is an important starting 
+ point. These base classes provide a structure to assist with rendering to the correct container element and updating 
+ when the container resizes.</p>
+<p>These base classes streamline the process of copying simple, whole page examples (such as those in the 
+<a href="https://github.com/d3/d3/wiki/Gallery" class="external-link" target="_blank">D3 Gallery</a>) and housing them in a component. That component can then be easily 
+managed like any other in an Ext JS application.</p>
+<p>The D3 Adapter then builds on these primitive base classes and provides some of the most commonly used D3 visualizations 
+as ready to use components. These higher-level components understand your Ext JS data stores and connect them to D3 
+drawings and then ensure these stay up to date when your data changes.</p>
+<h3 id="core_concepts-_-d3_-_hierarchical_components">Hierarchical Components<a class="quick-link" href="#core_concepts-_-d3_-_hierarchical_components"></a></h3>
+<p>The need to display hierarchical information is quite common and D3 provides a wide range of visualizations for this 
+type of data. These components connect an <a href="../../../../extjs/6.2.0/modern/Ext.data.TreeStore.html">Ext.data.TreeStore</a> to several of the popular D3 layouts to display 
+hierarchical data.</p>
+<h4 id="core_concepts-_-d3_-_tree">Tree<a class="quick-link" href="#core_concepts-_-d3_-_tree"></a></h4>
+<p>The &#39;d3-tree&#39; component is a perfect way to visualize hierarchical data as an actual tree in cases where the relative 
+size of nodes is of little interest, and the focus is on the relative position of each node in the hierarchy. A 
+horizontal tree makes for a more consistent look and more efficient use of space when text labels are shown next to 
+each node.</p>
+<div class="da-inline-code-wrap da-inline-code-wrap-fiddle invisible example-collapse-target" id="s-2432" data-fiddle-meta='{"framework":"Ext JS","version":"6.2.0","toolkit":"classic","theme":"triton"}'>
+                    <div class="da-inline-fiddle-nav">
+                        <div class="code-controls">
+                            <span class="collapse-tool fa fa-caret-up"></span>
+                            <span class="expand-tool fa fa-caret-down"></span>
+                            <span class="expand-code">Expand Code</span>
+                        </div>
+                        <span class="da-inline-fiddle-nav-code da-inline-fiddle-nav-active">
+                            <span class="fa fa-code"></span>
+                            Code
+                        </span><!--
+                        --><span class="da-inline-fiddle-nav-fiddle">
+                            <span class="fiddle-icon-wrap">
+                                <span class="fa fa-play-circle">
+                                </span><span class="fa fa-refresh"></span>
+                            </span>
+                            Run
+                        </span>
+                        <span class="icon-btn fiddle-code-beautify tooltip tooltip-tr-br" data-beautify="Beautify Code">
+                            <i class="fa fa-indent"></i>
+                            <div class="callout callout-b"></div>
+                        </span>
+                        
+                        <label class="example-theme-picker-label">
+                            Editor Theme:
+                            <select class="example-theme-picker" size="1">
+                                <optgroup label="Bright">
+                                    <option value="ace/theme/chrome">Chrome</option>
+                                    <option value="ace/theme/clouds">Clouds</option>
+                                    <option value="ace/theme/crimson_editor">Crimson Editor</option>
+                                    <option value="ace/theme/dawn">Dawn</option>
+                                    <option value="ace/theme/dreamweaver">Dreamweaver</option>
+                                    <option value="ace/theme/eclipse">Eclipse</option>
+                                    <option value="ace/theme/github">GitHub</option>
+                                    <option value="ace/theme/iplastic">IPlastic</option>
+                                    <option value="ace/theme/solarized_light">Solarized Light</option>
+                                    <option value="ace/theme/textmate">TextMate</option>
+                                    <option value="ace/theme/tomorrow">Tomorrow</option>
+                                    <option value="ace/theme/xcode">XCode</option>
+                                    <option value="ace/theme/kuroir">Kuroir</option>
+                                    <option value="ace/theme/katzenmilch">KatzenMilch</option>
+                                    <option value="ace/theme/sqlserver">SQL Server</option>
+                                </optgroup>
+                                <optgroup label="Dark">
+                                    <option value="ace/theme/ambiance">Ambiance</option>
+                                    <option value="ace/theme/chaos">Chaos</option>
+                                    <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+                                    <option value="ace/theme/cobalt">Cobalt</option>
+                                    <option value="ace/theme/gruvbox">Gruvbox</option>
+                                    <option value="ace/theme/gob">Green on Black</option>
+                                    <option value="ace/theme/idle_fingers">idle Fingers</option>
+                                    <option value="ace/theme/kr_theme">krTheme</option>
+                                    <option value="ace/theme/merbivore">Merbivore</option>
+                                    <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+                                    <option value="ace/theme/mono_industrial">Mono Industrial</option>
+                                    <option value="ace/theme/monokai">Monokai</option>
+                                    <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+                                    <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                                    <option value="ace/theme/terminal">Terminal</option>
+                                    <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                                    <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+                                    <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+                                    <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+                                    <option value="ace/theme/twilight">Twilight</option>
+                                    <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="s-2433" class="ace-ct">Ext.create(&#39;Ext.panel.Panel&#39;, {
+   renderTo: Ext.getBody(),
+   title: &#39;Tree Chart&#39;,
+   items: [
+       {    
+           xtype: &#39;d3-tree&#39;,   
+           store: {   
+               type: &#39;tree&#39;,  
+               data: [   
+                   {
+                       text: &quot;IT&quot;,
+                       expanded: false,
+                       children: [
+                           {leaf: true, text: &#39;Norrin Radd&#39;},
+                           {leaf: true, text: &#39;Adam Warlock&#39;}
+                       ]
+                   },
+                   {    
+                       text: &quot;Engineering&quot;,    
+                       expanded: false,    
+                       children: [   
+                           {leaf: true, text: &#39;Mathew Murdoch&#39;},  
+                           {leaf: true, text: &#39;Lucas Cage&#39;}    
+                       ]    
+                   },
+                   {
+                       text: &quot;Support&quot;,
+                       expanded: false,
+                       children: [
+                           {leaf: true, text: &#39;Peter Quill&#39;}
+                       ]
+                   }
+               ]
+           },
+           interactions: {
+               type: &#39;panzoom&#39;,
+               zoom: {
+                   extent: [0.3, 3],
+                   doubleTap: false
+               }
+           },
+           nodeSize: [20, 350]
+       }
+   ]
+});</div></div><h4 id="core_concepts-_-d3_-_sunburst">Sunburst<a class="quick-link" href="#core_concepts-_-d3_-_sunburst"></a></h4>
+<p>The &#39;d3-sunburst&#39; component visualizes tree nodes as donut sectors, with the root circle in the center. The angle and 
+area of each sector corresponds to its <a href="../../../../extjs/6.2.0/modern/Ext.d3.hierarchy.Hierarchy.html#cfg-nodeValue">node value</a>. By default the same 
+value is returned for each node, meaning that siblings will span equal angles and occupy equal area.</p>
+<div class="da-inline-code-wrap da-inline-code-wrap-fiddle invisible example-collapse-target" id="s-2434" data-fiddle-meta='{"framework":"Ext JS","version":"6.2.0","toolkit":"classic","theme":"triton"}'>
+                    <div class="da-inline-fiddle-nav">
+                        <div class="code-controls">
+                            <span class="collapse-tool fa fa-caret-up"></span>
+                            <span class="expand-tool fa fa-caret-down"></span>
+                            <span class="expand-code">Expand Code</span>
+                        </div>
+                        <span class="da-inline-fiddle-nav-code da-inline-fiddle-nav-active">
+                            <span class="fa fa-code"></span>
+                            Code
+                        </span><!--
+                        --><span class="da-inline-fiddle-nav-fiddle">
+                            <span class="fiddle-icon-wrap">
+                                <span class="fa fa-play-circle">
+                                </span><span class="fa fa-refresh"></span>
+                            </span>
+                            Run
+                        </span>
+                        <span class="icon-btn fiddle-code-beautify tooltip tooltip-tr-br" data-beautify="Beautify Code">
+                            <i class="fa fa-indent"></i>
+                            <div class="callout callout-b"></div>
+                        </span>
+                        
+                        <label class="example-theme-picker-label">
+                            Editor Theme:
+                            <select class="example-theme-picker" size="1">
+                                <optgroup label="Bright">
+                                    <option value="ace/theme/chrome">Chrome</option>
+                                    <option value="ace/theme/clouds">Clouds</option>
+                                    <option value="ace/theme/crimson_editor">Crimson Editor</option>
+                                    <option value="ace/theme/dawn">Dawn</option>
+                                    <option value="ace/theme/dreamweaver">Dreamweaver</option>
+                                    <option value="ace/theme/eclipse">Eclipse</option>
+                                    <option value="ace/theme/github">GitHub</option>
+                                    <option value="ace/theme/iplastic">IPlastic</option>
+                                    <option value="ace/theme/solarized_light">Solarized Light</option>
+                                    <option value="ace/theme/textmate">TextMate</option>
+                                    <option value="ace/theme/tomorrow">Tomorrow</option>
+                                    <option value="ace/theme/xcode">XCode</option>
+                                    <option value="ace/theme/kuroir">Kuroir</option>
+                                    <option value="ace/theme/katzenmilch">KatzenMilch</option>
+                                    <option value="ace/theme/sqlserver">SQL Server</option>
+                                </optgroup>
+                                <optgroup label="Dark">
+                                    <option value="ace/theme/ambiance">Ambiance</option>
+                                    <option value="ace/theme/chaos">Chaos</option>
+                                    <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+                                    <option value="ace/theme/cobalt">Cobalt</option>
+                                    <option value="ace/theme/gruvbox">Gruvbox</option>
+                                    <option value="ace/theme/gob">Green on Black</option>
+                                    <option value="ace/theme/idle_fingers">idle Fingers</option>
+                                    <option value="ace/theme/kr_theme">krTheme</option>
+                                    <option value="ace/theme/merbivore">Merbivore</option>
+                                    <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+                                    <option value="ace/theme/mono_industrial">Mono Industrial</option>
+                                    <option value="ace/theme/monokai">Monokai</option>
+                                    <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+                                    <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                                    <option value="ace/theme/terminal">Terminal</option>
+                                    <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                                    <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+                                    <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+                                    <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+                                    <option value="ace/theme/twilight">Twilight</option>
+                                    <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="s-2435" class="ace-ct">Ext.create(&#39;Ext.panel.Panel&#39;, {
+  renderTo: Ext.getBody(),
+  title: &#39;Sunburst Chart&#39;,
+  height: 750,
+  width: 750,
+  layout: &#39;fit&#39;,
+  items: [
+      {
+          xtype: &#39;d3-sunburst&#39;,
+          padding: 20,
+          tooltip: {
+              renderer: function (component, tooltip, record) {
+                  tooltip.setHtml(record.get(&#39;text&#39;));
+              }
+          },
+          store: {
+              type: &#39;tree&#39;,
+              data: [
+                  {
+                      text: &quot;Oscorp&quot;,
+                      children: [
+                          {text: &#39;Norman Osborn&#39;},
+                          {text: &#39;Harry Osborn&#39;},
+                          {text: &#39;Arthur Stacy&#39;}
+                      ]
+                  },
+                  {
+                      text: &quot;SHIELD&quot;,
+                      children: [
+                          {text: &#39;Nick Fury&#39;},
+                          {text: &#39;Maria Hill&#39;},
+                          {text: &#39;Tony Stark&#39;}
+                      ]
+                  },
+                  {
+                      text: &quot;Illuminati&quot;,
+                      children: [
+                          {text: &#39;Namor&#39;},
+                          {text: &#39;Tony Stark&#39;},
+                          {text: &#39;Reed Richards&#39;},
+                          {text: &#39;Black Bolt&#39;},
+                          {text: &#39;Dr. Stephen Strange&#39;},
+                          {text: &#39;Charles Xavier&#39;}
+                      ]
+                  }
+              ]
+          }
+      }
+  ]
+});</div></div><h4 id="core_concepts-_-d3_-_pack">Pack<a class="quick-link" href="#core_concepts-_-d3_-_pack"></a></h4>
+<p>The &#39;d3-pack&#39; component uses D3&#39;s <a href="https://github.com/d3/d3-3.x-api-reference/blob/master/Pack-Layout.md" class="external-link" target="_blank">Pack Layout</a> 
+to visualize hierarchical data as an enclosure diagram. The size of each leaf node’s circle reveals a quantitative 
+dimension of each data point. The enclosing circles show the approximate cumulative size of each subtree.</p>
+<div class="da-inline-code-wrap da-inline-code-wrap-fiddle invisible example-collapse-target" id="s-2436" data-fiddle-meta='{"framework":"Ext JS","version":"6.2.0","toolkit":"classic","theme":"triton"}'>
+                    <div class="da-inline-fiddle-nav">
+                        <div class="code-controls">
+                            <span class="collapse-tool fa fa-caret-up"></span>
+                            <span class="expand-tool fa fa-caret-down"></span>
+                            <span class="expand-code">Expand Code</span>
+                        </div>
+                        <span class="da-inline-fiddle-nav-code da-inline-fiddle-nav-active">
+                            <span class="fa fa-code"></span>
+                            Code
+                        </span><!--
+                        --><span class="da-inline-fiddle-nav-fiddle">
+                            <span class="fiddle-icon-wrap">
+                                <span class="fa fa-play-circle">
+                                </span><span class="fa fa-refresh"></span>
+                            </span>
+                            Run
+                        </span>
+                        <span class="icon-btn fiddle-code-beautify tooltip tooltip-tr-br" data-beautify="Beautify Code">
+                            <i class="fa fa-indent"></i>
+                            <div class="callout callout-b"></div>
+                        </span>
+                        
+                        <label class="example-theme-picker-label">
+                            Editor Theme:
+                            <select class="example-theme-picker" size="1">
+                                <optgroup label="Bright">
+                                    <option value="ace/theme/chrome">Chrome</option>
+                                    <option value="ace/theme/clouds">Clouds</option>
+                                    <option value="ace/theme/crimson_editor">Crimson Editor</option>
+                                    <option value="ace/theme/dawn">Dawn</option>
+                                    <option value="ace/theme/dreamweaver">Dreamweaver</option>
+                                    <option value="ace/theme/eclipse">Eclipse</option>
+                                    <option value="ace/theme/github">GitHub</option>
+                                    <option value="ace/theme/iplastic">IPlastic</option>
+                                    <option value="ace/theme/solarized_light">Solarized Light</option>
+                                    <option value="ace/theme/textmate">TextMate</option>
+                                    <option value="ace/theme/tomorrow">Tomorrow</option>
+                                    <option value="ace/theme/xcode">XCode</option>
+                                    <option value="ace/theme/kuroir">Kuroir</option>
+                                    <option value="ace/theme/katzenmilch">KatzenMilch</option>
+                                    <option value="ace/theme/sqlserver">SQL Server</option>
+                                </optgroup>
+                                <optgroup label="Dark">
+                                    <option value="ace/theme/ambiance">Ambiance</option>
+                                    <option value="ace/theme/chaos">Chaos</option>
+                                    <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+                                    <option value="ace/theme/cobalt">Cobalt</option>
+                                    <option value="ace/theme/gruvbox">Gruvbox</option>
+                                    <option value="ace/theme/gob">Green on Black</option>
+                                    <option value="ace/theme/idle_fingers">idle Fingers</option>
+                                    <option value="ace/theme/kr_theme">krTheme</option>
+                                    <option value="ace/theme/merbivore">Merbivore</option>
+                                    <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+                                    <option value="ace/theme/mono_industrial">Mono Industrial</option>
+                                    <option value="ace/theme/monokai">Monokai</option>
+                                    <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+                                    <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                                    <option value="ace/theme/terminal">Terminal</option>
+                                    <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                                    <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+                                    <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+                                    <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+                                    <option value="ace/theme/twilight">Twilight</option>
+                                    <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="s-2437" class="ace-ct">Ext.create(&#39;Ext.panel.Panel&#39;, {
+    renderTo: Ext.getBody(),
+    title: &#39;Pack Chart&#39;,
+    height: 750,
+    width: 750,
+    layout: &#39;fit&#39;,
+    items: [
+        {
+            xtype: &#39;d3-pack&#39;,
+            tooltip: {
+                renderer: function (component, tooltip, record) {
+                    tooltip.setHtml(record.get(&#39;text&#39;));
+                }
+            },
+            store: {
+                type: &#39;tree&#39;,
+                data: [
+                    {
+                        &quot;text&quot;: &quot;DC&quot;,
+                        &quot;children&quot;: [
+                            {
+                                &quot;text&quot;: &quot;Flash&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;Flashpoint&quot; }
+                                ]
+                            },
+                            {
+                                &quot;text&quot;: &quot;Green Lantern&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;Rebirth&quot; },
+                                    { &quot;text&quot;: &quot;Sinestro Corps War&quot; }
+                                ]
+                            },
+                            {
+                                &quot;text&quot;: &quot;Batman&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;Hush&quot; },
+                                    { &quot;text&quot;: &quot;The Long Halloween&quot; },
+                                    { &quot;text&quot;: &quot;Batman and Robin&quot; },
+                                    { &quot;text&quot;: &quot;The Killing Joke&quot; }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        &quot;text&quot;: &quot;Marvel&quot;,
+                        &quot;children&quot;: [
+                            {
+                                &quot;text&quot;: &quot;All&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;Infinity War&quot; },
+                                    { &quot;text&quot;: &quot;Infinity Gauntlet&quot; },
+                                    { &quot;text&quot;: &quot;Avengers Disassembled&quot; }
+                                ]
+                            },
+                            {
+                                &quot;text&quot;: &quot;Spiderman&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;Ultimate Spiderman&quot; }
+                                ]
+                            },
+                            {
+                                &quot;text&quot;: &quot;Vision&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;The Vision&quot; }
+                                ]
+                            },
+                            {
+                                &quot;text&quot;: &quot;X-Men&quot;,
+                                &quot;children&quot;: [
+                                    { &quot;text&quot;: &quot;Gifted&quot; },
+                                    { &quot;text&quot;: &quot;Dark Phoenix Saga&quot; },
+                                    { &quot;text&quot;: &quot;Unstoppable&quot; }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+});</div></div><h4 id="core_concepts-_-d3_-_treemap">TreeMap<a class="quick-link" href="#core_concepts-_-d3_-_treemap"></a></h4>
+<p>The &#39;d3-treemap&#39; component uses D3&#39;s 
+<a href="https://github.com/d3/d3-3.x-api-reference/blob/master/Treemap-Layout.md" class="external-link" target="_blank">TreeMap Layout</a> to recursively subdivide 
+area into rectangles, where the area of any node in the tree corresponds to its value.</p>
+<div class="da-inline-code-wrap da-inline-code-wrap-fiddle invisible example-collapse-target" id="s-2438" data-fiddle-meta='{"framework":"Ext JS","version":"6.2.0","toolkit":"classic","theme":"triton"}'>
+                    <div class="da-inline-fiddle-nav">
+                        <div class="code-controls">
+                            <span class="collapse-tool fa fa-caret-up"></span>
+                            <span class="expand-tool fa fa-caret-down"></span>
+                            <span class="expand-code">Expand Code</span>
+                        </div>
+                        <span class="da-inline-fiddle-nav-code da-inline-fiddle-nav-active">
+                            <span class="fa fa-code"></span>
+                            Code
+                        </span><!--
+                        --><span class="da-inline-fiddle-nav-fiddle">
+                            <span class="fiddle-icon-wrap">
+                                <span class="fa fa-play-circle">
+                                </span><span class="fa fa-refresh"></span>
+                            </span>
+                            Run
+                        </span>
+                        <span class="icon-btn fiddle-code-beautify tooltip tooltip-tr-br" data-beautify="Beautify Code">
+                            <i class="fa fa-indent"></i>
+                            <div class="callout callout-b"></div>
+                        </span>
+                        
+                        <label class="example-theme-picker-label">
+                            Editor Theme:
+                            <select class="example-theme-picker" size="1">
+                                <optgroup label="Bright">
+                                    <option value="ace/theme/chrome">Chrome</option>
+                                    <option value="ace/theme/clouds">Clouds</option>
+                                    <option value="ace/theme/crimson_editor">Crimson Editor</option>
+                                    <option value="ace/theme/dawn">Dawn</option>
+                                    <option value="ace/theme/dreamweaver">Dreamweaver</option>
+                                    <option value="ace/theme/eclipse">Eclipse</option>
+                                    <option value="ace/theme/github">GitHub</option>
+                                    <option value="ace/theme/iplastic">IPlastic</option>
+                                    <option value="ace/theme/solarized_light">Solarized Light</option>
+                                    <option value="ace/theme/textmate">TextMate</option>
+                                    <option value="ace/theme/tomorrow">Tomorrow</option>
+                                    <option value="ace/theme/xcode">XCode</option>
+                                    <option value="ace/theme/kuroir">Kuroir</option>
+                                    <option value="ace/theme/katzenmilch">KatzenMilch</option>
+                                    <option value="ace/theme/sqlserver">SQL Server</option>
+                                </optgroup>
+                                <optgroup label="Dark">
+                                    <option value="ace/theme/ambiance">Ambiance</option>
+                                    <option value="ace/theme/chaos">Chaos</option>
+                                    <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+                                    <option value="ace/theme/cobalt">Cobalt</option>
+                                    <option value="ace/theme/gruvbox">Gruvbox</option>
+                                    <option value="ace/theme/gob">Green on Black</option>
+                                    <option value="ace/theme/idle_fingers">idle Fingers</option>
+                                    <option value="ace/theme/kr_theme">krTheme</option>
+                                    <option value="ace/theme/merbivore">Merbivore</option>
+                                    <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+                                    <option value="ace/theme/mono_industrial">Mono Industrial</option>
+                                    <option value="ace/theme/monokai">Monokai</option>
+                                    <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+                                    <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                                    <option value="ace/theme/terminal">Terminal</option>
+                                    <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                                    <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+                                    <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+                                    <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+                                    <option value="ace/theme/twilight">Twilight</option>
+                                    <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="s-2439" class="ace-ct">Ext.create(&#39;Ext.panel.Panel&#39;, {
+    renderTo: Ext.getBody(),
+    title: &#39;TreeMap Chart&#39;,
+    height: 750,
+    width: 750,
+    layout: &#39;fit&#39;,
+    items: [
+        {
+            xtype: &#39;d3-treemap&#39;,
+            tooltip: {
+                renderer: function (component, tooltip, record) {
+                    tooltip.setHtml(record.get(&#39;text&#39;));
+                }
+            },
+            nodeValue: function (node) {
+                // Associates the rendered size of the box to a value in your data
+                return node.data.value;
+            },
+            store: {
+                type: &#39;tree&#39;,
+                data: [
+                    {  text: &#39;Hulk&#39;,
+                       value : 5,
+                       children: [
+                            { text: &#39;The Leader&#39;, value: 3 },
+                            { text: &#39;Abomination&#39;, value: 2 },
+                            { text: &#39;Sandman&#39;, value: 1 }
+                        ]
+                    },
+                    {   text: &#39;Vision&#39;,
+                        value : 4,
+                        children: [
+                            { text: &#39;Kang&#39;, value: 4 },
+                            { text: &#39;Magneto&#39;, value: 3 },
+                            { text: &#39;Norman Osborn&#39;, value: 2 },
+                            { text: &#39;Anti-Vision&#39;, value: 1 }
+                        ]
+                    },
+                    {   text: &#39;Ghost Rider&#39;,
+                        value : 3,
+                        children: [
+                            { text: &#39;Mephisto&#39;, value: 1 }
+                        ]
+                    },
+                    {   text: &#39;Loki&#39;,
+                        value : 2,
+                        children: [
+                            { text: &#39;Captain America&#39;, value: 3 },
+                            { text: &#39;Deadpool&#39;, value: 4 },
+                            { text: &#39;Odin&#39;, value: 5 },
+                            { text: &#39;Scarlet Witch&#39;, value: 2 },
+                            { text: &#39;Silver Surfer&#39;, value: 1 }
+                        ]
+                    },
+                    {   text: &#39;Daredevil&#39;,
+                        value : 1,
+                        children: [
+                            { text: &#39;Purple Man&#39;, value: 4 },
+                            { text: &#39;Kingpin&#39;, value: 3 },
+                            { text: &#39;Namor&#39;, value: 2 },
+                            { text: &#39;Sabretooth&#39;, value: 1 }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+});</div></div><h3 id="core_concepts-_-d3_-_heatmap_component">HeatMap Component<a class="quick-link" href="#core_concepts-_-d3_-_heatmap_component"></a></h3>
+<p>Heatmaps are a great way to present three-dimensional data in a two-dimensional drawing. The 
+<a href="http://docs.sencha.com/extjs/6.2.0-classic/Ext.d3.HeatMap.html" class="external-link" target="_blank">HeatMap</a> component maps X and Y values to axes as you 
+might expect.  It then maps Z values to a &quot;color axis&quot;.</p>
+<div class="da-inline-code-wrap da-inline-code-wrap-fiddle invisible example-collapse-target" id="s-2440" data-fiddle-meta='{"framework":"Ext JS","version":"6.2.0","toolkit":"classic","theme":"triton"}'>
+                    <div class="da-inline-fiddle-nav">
+                        <div class="code-controls">
+                            <span class="collapse-tool fa fa-caret-up"></span>
+                            <span class="expand-tool fa fa-caret-down"></span>
+                            <span class="expand-code">Expand Code</span>
+                        </div>
+                        <span class="da-inline-fiddle-nav-code da-inline-fiddle-nav-active">
+                            <span class="fa fa-code"></span>
+                            Code
+                        </span><!--
+                        --><span class="da-inline-fiddle-nav-fiddle">
+                            <span class="fiddle-icon-wrap">
+                                <span class="fa fa-play-circle">
+                                </span><span class="fa fa-refresh"></span>
+                            </span>
+                            Run
+                        </span>
+                        <span class="icon-btn fiddle-code-beautify tooltip tooltip-tr-br" data-beautify="Beautify Code">
+                            <i class="fa fa-indent"></i>
+                            <div class="callout callout-b"></div>
+                        </span>
+                        
+                        <label class="example-theme-picker-label">
+                            Editor Theme:
+                            <select class="example-theme-picker" size="1">
+                                <optgroup label="Bright">
+                                    <option value="ace/theme/chrome">Chrome</option>
+                                    <option value="ace/theme/clouds">Clouds</option>
+                                    <option value="ace/theme/crimson_editor">Crimson Editor</option>
+                                    <option value="ace/theme/dawn">Dawn</option>
+                                    <option value="ace/theme/dreamweaver">Dreamweaver</option>
+                                    <option value="ace/theme/eclipse">Eclipse</option>
+                                    <option value="ace/theme/github">GitHub</option>
+                                    <option value="ace/theme/iplastic">IPlastic</option>
+                                    <option value="ace/theme/solarized_light">Solarized Light</option>
+                                    <option value="ace/theme/textmate">TextMate</option>
+                                    <option value="ace/theme/tomorrow">Tomorrow</option>
+                                    <option value="ace/theme/xcode">XCode</option>
+                                    <option value="ace/theme/kuroir">Kuroir</option>
+                                    <option value="ace/theme/katzenmilch">KatzenMilch</option>
+                                    <option value="ace/theme/sqlserver">SQL Server</option>
+                                </optgroup>
+                                <optgroup label="Dark">
+                                    <option value="ace/theme/ambiance">Ambiance</option>
+                                    <option value="ace/theme/chaos">Chaos</option>
+                                    <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+                                    <option value="ace/theme/cobalt">Cobalt</option>
+                                    <option value="ace/theme/gruvbox">Gruvbox</option>
+                                    <option value="ace/theme/gob">Green on Black</option>
+                                    <option value="ace/theme/idle_fingers">idle Fingers</option>
+                                    <option value="ace/theme/kr_theme">krTheme</option>
+                                    <option value="ace/theme/merbivore">Merbivore</option>
+                                    <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+                                    <option value="ace/theme/mono_industrial">Mono Industrial</option>
+                                    <option value="ace/theme/monokai">Monokai</option>
+                                    <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+                                    <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                                    <option value="ace/theme/terminal">Terminal</option>
+                                    <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                                    <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+                                    <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+                                    <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+                                    <option value="ace/theme/twilight">Twilight</option>
+                                    <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="s-2441" class="ace-ct">Ext.create(&#39;Ext.panel.Panel&#39;, {
+    renderTo: Ext.getBody(),
+    title: &#39;Heatmap Chart&#39;,
+    height: 750,
+    width: 750,
+    layout: &#39;fit&#39;,
+    items: [
+        {
+            xtype: &#39;d3-heatmap&#39;,
+            padding: {
+                top: 20,
+                right: 30,
+                bottom: 20,
+                left: 80
+            },
+
+            xAxis: {
+                axis: {
+                    ticks: &#39;d3.time.days&#39;,
+                    tickFormat: &quot;d3.time.format(&#39;%b %d&#39;)&quot;,
+                    orient: &#39;bottom&#39;
+                },
+                scale: {
+                    type: &#39;time&#39;
+                },
+                title: {
+                    text: &#39;Date&#39;
+                },
+                field: &#39;date&#39;,
+                step: 24 * 60 * 60 * 1000
+            },
+
+            yAxis: {
+                axis: {
+                    orient: &#39;left&#39;
+                },
+                scale: {
+                    type: &#39;linear&#39;
+                },
+                title: {
+                    text: &#39;Total&#39;
+                },
+                field: &#39;bucket&#39;,
+                step: 100
+            },
+
+            colorAxis: {
+                scale: {
+                    type: &#39;linear&#39;,
+                    range: [&#39;white&#39;, &#39;orange&#39;]
+                },
+                field: &#39;count&#39;,
+                minimum: 0
+            },
+
+            tiles: {
+                attr: {
+                    &#39;stroke&#39;: &#39;black&#39;,
+                    &#39;stroke-width&#39;: 1
+                }
+            },
+
+            store: {
+                fields: [
+                    {name: &#39;date&#39;, type: &#39;date&#39;, dateFormat: &#39;Y-m-d&#39;},
+                    &#39;bucket&#39;,
+                    &#39;count&#39;
+                ],
+                data: [
+                    { &quot;date&quot;: &quot;2012-07-20&quot;, &quot;bucket&quot;: 800, &quot;count&quot;: 119 },
+                    { &quot;date&quot;: &quot;2012-07-20&quot;, &quot;bucket&quot;: 900, &quot;count&quot;: 123 },
+                    { &quot;date&quot;: &quot;2012-07-20&quot;, &quot;bucket&quot;: 1000, &quot;count&quot;: 173 },
+                    { &quot;date&quot;: &quot;2012-07-20&quot;, &quot;bucket&quot;: 1100, &quot;count&quot;: 226 },
+                    { &quot;date&quot;: &quot;2012-07-20&quot;, &quot;bucket&quot;: 1200, &quot;count&quot;: 284 },
+
+                    { &quot;date&quot;: &quot;2012-07-21&quot;, &quot;bucket&quot;: 800, &quot;count&quot;: 123 },
+                    { &quot;date&quot;: &quot;2012-07-21&quot;, &quot;bucket&quot;: 900, &quot;count&quot;: 165 },
+                    { &quot;date&quot;: &quot;2012-07-21&quot;, &quot;bucket&quot;: 1000, &quot;count&quot;: 237 },
+                    { &quot;date&quot;: &quot;2012-07-21&quot;, &quot;bucket&quot;: 1100, &quot;count&quot;: 278 },
+                    { &quot;date&quot;: &quot;2012-07-21&quot;, &quot;bucket&quot;: 1200, &quot;count&quot;: 338 },
+
+                    { &quot;date&quot;: &quot;2012-07-22&quot;, &quot;bucket&quot;: 900, &quot;count&quot;: 154 },
+                    { &quot;date&quot;: &quot;2012-07-22&quot;, &quot;bucket&quot;: 1000, &quot;count&quot;: 241 },
+                    { &quot;date&quot;: &quot;2012-07-22&quot;, &quot;bucket&quot;: 1100, &quot;count&quot;: 246 },
+                    { &quot;date&quot;: &quot;2012-07-22&quot;, &quot;bucket&quot;: 1200, &quot;count&quot;: 300 },
+                    { &quot;date&quot;: &quot;2012-07-22&quot;, &quot;bucket&quot;: 1300, &quot;count&quot;: 305 },
+
+                    { &quot;date&quot;: &quot;2012-07-23&quot;, &quot;bucket&quot;: 800, &quot;count&quot;: 120 },
+                    { &quot;date&quot;: &quot;2012-07-23&quot;, &quot;bucket&quot;: 900, &quot;count&quot;: 156 },
+                    { &quot;date&quot;: &quot;2012-07-23&quot;, &quot;bucket&quot;: 1000, &quot;count&quot;: 209 },
+                    { &quot;date&quot;: &quot;2012-07-23&quot;, &quot;bucket&quot;: 1100, &quot;count&quot;: 267 },
+                    { &quot;date&quot;: &quot;2012-07-23&quot;, &quot;bucket&quot;: 1200, &quot;count&quot;: 299 },
+                    { &quot;date&quot;: &quot;2012-07-23&quot;, &quot;bucket&quot;: 1300, &quot;count&quot;: 316 },
+
+                    { &quot;date&quot;: &quot;2012-07-24&quot;, &quot;bucket&quot;: 800, &quot;count&quot;: 105 },
+                    { &quot;date&quot;: &quot;2012-07-24&quot;, &quot;bucket&quot;: 900, &quot;count&quot;: 156 },
+                    { &quot;date&quot;: &quot;2012-07-24&quot;, &quot;bucket&quot;: 1000, &quot;count&quot;: 220 },
+                    { &quot;date&quot;: &quot;2012-07-24&quot;, &quot;bucket&quot;: 1100, &quot;count&quot;: 255 },
+                    { &quot;date&quot;: &quot;2012-07-24&quot;, &quot;bucket&quot;: 1200, &quot;count&quot;: 308 },
+
+                    { &quot;date&quot;: &quot;2012-07-25&quot;, &quot;bucket&quot;: 800, &quot;count&quot;: 104 },
+                    { &quot;date&quot;: &quot;2012-07-25&quot;, &quot;bucket&quot;: 900, &quot;count&quot;: 191 },
+                    { &quot;date&quot;: &quot;2012-07-25&quot;, &quot;bucket&quot;: 1000, &quot;count&quot;: 201 },
+                    { &quot;date&quot;: &quot;2012-07-25&quot;, &quot;bucket&quot;: 1100, &quot;count&quot;: 238 },
+                    { &quot;date&quot;: &quot;2012-07-25&quot;, &quot;bucket&quot;: 1200, &quot;count&quot;: 223 },
+
+                    { &quot;date&quot;: &quot;2012-07-26&quot;, &quot;bucket&quot;: 1300, &quot;count&quot;: 132 },
+                    { &quot;date&quot;: &quot;2012-07-26&quot;, &quot;bucket&quot;: 1400, &quot;count&quot;: 117 },
+                    { &quot;date&quot;: &quot;2012-07-26&quot;, &quot;bucket&quot;: 1500, &quot;count&quot;: 124 },
+                    { &quot;date&quot;: &quot;2012-07-26&quot;, &quot;bucket&quot;: 1600, &quot;count&quot;: 154 },
+                    { &quot;date&quot;: &quot;2012-07-26&quot;, &quot;bucket&quot;: 1700, &quot;count&quot;: 167 }
+                ]
+            }
+        }
+    ]
+});</div></div><p><strong>Note:</strong> &quot;Heatmap.js&quot; can throw up red flags for some ad blockers.  If &quot;Heatmap.js&quot; won&#39;t load while you&#39;re developing, 
+disable your ad blocker or create an exception for &quot;Heatmap.js&quot;.</p>
+<h3 id="core_concepts-_-d3_-_custom_components">Custom Components<a class="quick-link" href="#core_concepts-_-d3_-_custom_components"></a></h3>
+<h4 id="core_concepts-_-d3_-_scenes">Scenes<a class="quick-link" href="#core_concepts-_-d3_-_scenes"></a></h4>
+<p><code>Ext.d3.svg.Svg</code> has a concept of a scene, which is represented by an SVG group (&#39;g&#39; element) that is designed to hold 
+all rendered data nodes and other elements of the visualization.</p>
+<p>For examples of a pure SVG scene example, see our Kitchen Sink.</p>
+<h4 id="core_concepts-_-d3_-_canvas">Canvas<a class="quick-link" href="#core_concepts-_-d3_-_canvas"></a></h4>
+<p>Ext.d3.canvas.Canvas deals with the Canvas element and its (&#39;2d&#39;) context. Since D3 does not provide resolution 
+independence for crisp looking drawings on HiDPI screens, it&#39;s handled by the &#39;d3-canvas&#39; component. HiDPI support is 
+completely transparent.  One just calls native Canvas APIs as they normally would. The HDPI overrides are automatically 
+applied to the canvas context where necessary (see Ext.d3.canvas.HiDPI).</p>
+<p>For examples of a pure Canvas example, see our Kitchen Sink.</p>
+<h2 id="core_concepts-_-d3_-_theming">Theming<a class="quick-link" href="#core_concepts-_-d3_-_theming"></a></h2>
+<p>Themes can be applied in the same fashion as other Ext JS components.  However, there is an exception when theming 
+tree nodes and heatmap cell colors.  These will need an <code>Ext.d3.axis.Color</code>. </p>
+<p>In our above HeatMap example, You saw that the nodes/cells with the lowest &#39;performance&#39; are white, while cells with 
+the highest &#39;performance&#39; are &#39;orange&#39;.</p>
+<p><img src="images/heatmap_theming.png" alt="image alt text"></p>
+<p>This representative gradient can be achieved with the following code:</p>
+<pre><code class="language-javascript">colorAxis: {
+    field: &#39;performance&#39;,
+    scale: {
+        type: &#39;linear&#39;,
+        range: [&#39;white&#39;, &#39;orange&#39;]
+    }
+}
+</code></pre><h2 id="core_concepts-_-d3_-_events">Events<a class="quick-link" href="#core_concepts-_-d3_-_events"></a></h2>
+<p>D3 has it’s own way of dealing with node events. However, it is incompatible with the Ext JS event system.  Additionally, 
+the D3 event system does not automatically map touch events to desktop events and vice versa.  Direct use of that 
+event system is discouraged.</p>
+<p>Instead, use one of the following approaches:</p>
+<h3 id="core_concepts-_-d3_-_preferred_method">Preferred Method<a class="quick-link" href="#core_concepts-_-d3_-_preferred_method"></a></h3>
+<pre><code class="language-javascript">var sceneElement = Ext.get(me.getScene().node()); // **preferred**
+
+sceneElement.on(‘click’, handlerFn, scope, {
+      delegate: ‘g.x-class-name’
+});
+</code></pre><h3 id="core_concepts-_-d3_-_fly_method">Fly Method<a class="quick-link" href="#core_concepts-_-d3_-_fly_method"></a></h3>
+<pre><code class="language-javascript">Ext.fly(selection.node()).on(‘click’, handlerFn, scope);
+</code></pre><h3 id="core_concepts-_-d3_-_each_method">Each Method<a class="quick-link" href="#core_concepts-_-d3_-_each_method"></a></h3>
+<pre><code class="language-javascript">selection.each(function (node) {
+
+    Ext.fly(this).on(‘click’, handlerFn, scope);
+
+});
+</code></pre><p><strong>Note:</strong> D3 4.0 now features automatic event mapping.  However, it may be incompatible with the Ext JS event system.<br>If it does become compatible, using two event systems in a single application is still discouraged.</p>
+<h2 id="core_concepts-_-d3_-_interactions">Interactions<a class="quick-link" href="#core_concepts-_-d3_-_interactions"></a></h2>
+<p>Instead of making use of D3’s &quot;behaviors&quot;, D3 components have a concept of interaction.</p>
+<p>Currently only ‘panzoom’ interaction (Ext.d3.interaction.PanZoom) is supported. It is meant to replace and enhance the 
+‘zoom’ behavior provided by D3. For example, the ‘zoom’ behavior in D3 has no support for constrained panning, kinetic 
+scrolling, scroll indicators and is generally incompatible with ExtJS event system. ‘Panzoom’ interaction fixes 
+all that.</p>
+<p><strong>Note:</strong> Some of these features made it into D3 4.0, which was released summer 2016.</p>
+<h2 id="core_concepts-_-d3_-_tooltips">Tooltips<a class="quick-link" href="#core_concepts-_-d3_-_tooltips"></a></h2>
+<p>All high level components support the ‘tooltip’ config via the <code>Ext.d3.mixin.ToolTip</code> mixin.</p>
+<p>The tooltip config works just like in other ExtJS components except for one extra property -- ‘renderer’. Renderer is 
+generally the only thing that needs to be specified when configuring a tooltip.  Here are two examples of how you 
+might set up your tooltips.</p>
+<h3 id="core_concepts-_-d3_-_view_controller_method">View Controller Method<a class="quick-link" href="#core_concepts-_-d3_-_view_controller_method"></a></h3>
+<pre><code class="language-javascript">tooltip: {  // inside a D3 component config in a view
+    renderer: &#39;onTooltip&#39;
+}
+
+// view controller’s handler
+
+onTooltip: function (component, tooltip, node, element, event) {
+    var n = node.childNodes.length;
+    tooltip.setHtml(n + &#39; items&#39; + (n === 1 ? &#39;&#39; : &#39;s&#39;) + &#39; inside.&#39;);
+}
+</code></pre><h3 id="core_concepts-_-d3_-_view_method">View Method<a class="quick-link" href="#core_concepts-_-d3_-_view_method"></a></h3>
+<pre><code class="language-javascript">tooltip :
+    renderer: function(component, tooltip, record) {
+        tooltip.setHtml(record.get(&#39;text&#39;));
+    }        
+}
+</code></pre><h3 id="core_concepts-_-d3_-_pivoting_with_d3">Pivoting with D3<a class="quick-link" href="#core_concepts-_-d3_-_pivoting_with_d3"></a></h3>
+<p>We can also aggregate local data using a Pivot Matrix. The new &quot;pivot-d3&quot; package contains several useful components 
+that connect these pieces for you.</p>
+<h4 id="core_concepts-_-d3_-_ext_pivot_d3_heatmap">Ext.pivot.d3.HeatMap<a class="quick-link" href="#core_concepts-_-d3_-_ext_pivot_d3_heatmap"></a></h4>
+<p>This component produces a D3 HeatMap after the data is aggregated by the pivot matrix.</p>
+<pre><code class="language-javascript">{
+    xtype: &#39;pivotheatmap&#39;,
+    // pivot matrix configurations
+    matrix: {
+        store: {
+            type: &#39;salesperemployee&#39;
+        },
+        leftAxis: {
+            dataIndex: &#39;employee&#39;,
+            header: &#39;Employee&#39;,
+            sortable: false
+        },
+        topAxis: {
+            dataIndex: &#39;day&#39;,
+            sortIndex: &#39;dayNumber&#39;,
+            header: &#39;Day&#39;
+        },
+        aggregate: {
+            dataIndex: &#39;sales&#39;,
+            aggregator: &#39;sum&#39;
+        }
+    }
+}
+</code></pre><p>When the pivot matrix is configured there should be only one dimension per axis defined.</p>
+<h4 id="core_concepts-_-d3_-_ext_pivot_d3_treemap">Ext.pivot.d3.TreeMap<a class="quick-link" href="#core_concepts-_-d3_-_ext_pivot_d3_treemap"></a></h4>
+<p>This component produces a D3 TreeMap after the data is aggregated by the pivot matrix.</p>
+<pre><code class="language-javascript">{
+    xtype: &#39;pivottreemap&#39;,
+    // pivot matrix configurations
+    matrix: {
+        store: {
+            type: &#39;salesperemployee&#39;
+        },
+        leftAxis: {
+            dataIndex: &#39;employee&#39;,
+            header: &#39;Employee&#39;,
+            sortable: false
+        },
+        aggregate: {
+            dataIndex: &#39;sales&#39;,
+            aggregator: &#39;sum&#39;
+        }
+    }
+}
+</code></pre><p>The <code>topAxis</code> configuration of the pivot matrix is ignored, <code>leftAxis</code> supports multiple dimensions and <code>aggregate</code> 
+should have only one dimension.</p>
+<h4 id="core_concepts-_-d3_-_ext_pivot_d3_container">Ext.pivot.d3.Container<a class="quick-link" href="#core_concepts-_-d3_-_ext_pivot_d3_container"></a></h4>
+<p>This new component connects the pivot Configurator plugin with any of the the above components to allow the end-user to 
+configure the pivot matrix:</p>
+<p><img src="images/pivot.png" alt="image alt text"></p>
+<p>The Configurator can be configured using the &quot;configurator&quot; config:</p>
+<pre><code class="language-javascript">{
+    xtype: &#39;pivotd3container&#39;,
+    drawing: {
+        xtype:  &#39;something&#39; // one of the above pivot D3 components
+        // more configs specific to that component
+    },
+    configurator: {
+        // pivotconfigurator plugin configs
+        fields: [{
+            dataIndex: &#39;person&#39;,
+            header: &#39;Person&#39;,
+            settings: {
+                // field settings
+            }
+        },{
+            // more fields
+        }]
+    },
+    // following configs are similar to the pivot grid
+    matrix: {
+        leftAxis: [],
+        topAxis: [],
+        aggregate: []
+    }
+}
+</code></pre>
+        </div>
+    </div>
+    <div id="footer">
+        <p class="di">
+            <a href="https://www.facebook.com/senchainc/" target="_blank"><img class="social" src="../../../../assets/images/fb.png"/></a>
+            <a href="https://www.linkedin.com/company/sencha-inc" target="_blank"><img class="social" src="../../../../assets/images/in.png"/></a>
+            <a href="https://twitter.com/Sencha" target="_blank"><img class="social" src="../../../../assets/images/twt.png"/></a>
+            Ext JS   | <a href='https://www.sencha.com/legal/terms-of-use/' target='_blank'>Terms of Use</a>
+        </p>
+    </div>
+</div>        </div>
+    </div>
+
+    <h2 class="product-header">
+        <a href="../../index.html">Ext JS 6.2.0 </a>
+        <span data-tip="Product / Version Menu" class="header-product-title product-menu-btn-wrap tooltip tooltip-tl-bl">
+            <span class="fa fa-angle-down product-menu-btn"></span>
+            <div class="callout callout-b"></div>
+        </span>
+        <div id="peekaboo-input" class="peekaboo-input dn">
+            <input type="text" id="mobile-input" />
+        </div>
+    </h2>
+
+    <div id="product-tree-ct" class="hide">
+        <div id="product-version-tree-ct" class="hide"></div>
+    </div>
+
+    <div id="historyConfigPanel">
+        <div class="history-type-selector">
+            <input id="historyTypeCurrent" type="radio" name="historyType" value="current" checked="true" />
+            <label for="historyTypeCurrent">Current Product / Version</label><br>
+            <input id="historyTypeAll" type="radio" name="historyType" value="all" />
+            <label for="historyTypeAll">All</label><br>
+            <div id="history-label-toggle" class="relative ml2 o-50">
+                <input id="history-all-labels" type="checkbox" checked="true" />
+                <label for="history-all-labels">Show product details in the history bar</label>
+                <div class="mask"></div>
+            </div>
+            <span id="history-clear" class="icon-btn history-clear tooltip tooltip-tr-br" data-tip="Clear History">
+                <i class="fa fa-trash"></i>
+                <div class="callout callout-b"></div>
+            </span>
+        </div>
+        <div id="history-full-list" class="overflow-y-auto"></div>
+    </div>
+
+    <div id="search-history-panel"></div>
+
+    <div id="modal-placeholder" class="modal">
+        <span id="modal-close" >&times;</span>
+        <img id="modal-content">
+        <div id="modal-caption"></div>
+    </div>
+
+
+</body>
+    <script type="text/javascript" src="../../../../assets/js/extjs-6.2.0-apiSearch.js"></script>
+    <script type="text/javascript" src="../../../../assets/js/extjs-6.2.0-guideSearch.js"></script>
+<!--[if lt IE 9 ]>
+<script type="text/javascript" src="../../../../assets/js/media-query-poly.js"></script>
+<style>
+    span.da-inline-fiddle-nav-fiddle.x-fa.fa-play-circle {
+        display: none;
+    }
+</style>
+<![endif]-->
+<script>
+    if (navigator.userAgent.indexOf("Safari") > -1) {
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload()
+            }
+        };
+    }
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1396058-28', 'auto');
+    ga('send', 'pageview');
+</script>
+</html>

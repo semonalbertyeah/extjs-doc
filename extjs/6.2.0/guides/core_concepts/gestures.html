@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestures | Ext JS 6.2.0 </title>
+    <!--  Generated on July, 3 2018 at 23:17 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta property="og:image" content="../../../../assets/images/sencha-200.png" />
+    <meta property="og:title" content="Gestures | Ext JS 6.2.0 " />
+    <meta property="og:description" content="Ext JS - API documentation from Sencha" />
+    <meta property="og:site_name" content="Sencha Documentation" />
+    <meta property="og:url" content="" />
+    <meta name="description" content="Ext JS - API documentation from Sencha">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/create-app-html-app.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../../../../assets/css/../../../node_modules/tachyons/css/tachyons.css"> -->
+
+
+</head>
+<body class="new-docs  is-guide  has-guides   has-api tree-shown ">
+
+    <!-- SVG Sprite -->
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden;" aria-hidden="true">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false">
+            <symbol id="ripply-scott" viewBox="0 0 100 100">
+                <circle id="ripple-shape" cx="1" cy="1" r="1" />
+            </symbol>
+        </svg>
+    </div>
+    <!-- /end sprite -->
+
+    <script type="text/javascript">
+        function getOS() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return 'ios';
+            } else if(userAgent.match(/Android/i)) {
+                return 'android';
+            }
+        }
+
+        var isIE8 = false;
+
+        document.body.className += ' ' + getOS();
+
+        window.DocsApp = window.DocsApp || {};
+        DocsApp.meta   = {"majorVer":"6","prodObj":{"3":{"link":"http://docs.sencha.com/{prod}/{ver}/#!/api/{page}"},"4":{"link":"http://docs.sencha.com/{prod}/{ver}/#!/api/{page}"},"title":"Ext JS","currentVersion":"6.6.0","toolkit":{"6":{"toolkits":["modern","classic"],"defaultToolkit":"modern"}},"productMenu":["6.6.0","6.5.3","6.5.2","6.5.1","6.5.0","6.2.1","6.2.0","6.0.2","6.0.1","6.0.0","5.1.4","5.1.3","5.1.2","5.1.1","5.1.0","5.0.1","5.0.0","4.2.6","4.1.3","4.0.7","3.4.0"],"guideSearchPartners":["cmd"],"hasVersions":true,"hasApi":true,"theme":{"5.0.0":"crisp","5.0.1":"crisp","5.1.0":"crisp","5.1.1":"crisp","5.1.2":"crisp","5.1.3":"crisp","5.1.4":"crisp","6.0.0":{"classic":"triton","modern":"triton"},"6.0.1":{"classic":"triton","modern":"triton"},"6.0.2":{"classic":"triton","modern":"triton"},"6.2.0":{"classic":"triton","modern":"triton"},"6.2.1":{"classic":"triton","modern":"triton"},"6.2.2":{"classic":"triton","modern":"triton"},"6.5.0":{"classic":"triton","modern":"material"},"6.5.1":{"classic":"triton","modern":"material"},"6.5.2":{"classic":"triton","modern":"material"},"6.5.3":{"classic":"triton","modern":"material"},"6.6.0":{"classic":"triton","modern":"material"}},"repo":"SDK","remoteUrl":"git@github.com:extjs/{repo}.git","addlRepos":["package-loader"],"addlRemoteUrls":"git@github.com:sencha/{repo}.git","remotes":{"7.0.0":{"branch":"ext-7.0.x"},"6.6.0":{"branch":"ext-6.6.x"},"6.5.3":{"branch":"ext-6.5.x"},"6.5.2":{"branch":"ext-6.5.x"},"6.5.1":{"branch":"ext-6.5.1-docs"},"6.5.0":{"branch":"ext-6.5.0-docs"},"6.2.2":{"branch":"ext-6.2.x"},"6.2.1":{"branch":"ext-6.2.1-docs"},"6.2.0":{"branch":"ext-6.2.0-docs"},"6.0.2":{"branch":"ext-6.0.x"},"6.0.1":{"branch":"ext-6.0.1-docs"},"6.0.0":{"branch":"ext-6.0.0-docs"},"5.1.4":{"branch":"ext-5.1.x"},"5.1.3":{"branch":"ext-5.1.3-docs"},"5.1.2":{"branch":"ext-5.1.2-docs"},"5.1.1":{"branch":"ext-5.1.1-docs"},"5.1.0":{"branch":"ext-5.1.0-docs"},"5.0.1":{"branch":"ext-5.0.1-docs"},"5.0.0":{"branch":"ext-5.0.0-docs"}}},"hasApi":true,"hasVersions":true,"hasToolkits":2,"toolkits":["modern","classic"],"toolkit":"classic","hasGuides":true,"title":"Ext JS","version":"6.2.0","pageType":"guide","product":"extjs","apiProduct":"extjs","apiVersion":"6.2.0","exceptions":{"touch":["2.3.1","2.2.1","2.1.1","2.0.1"],"extjs":["3.4.0","4.0.7","4.1.3","4.2.6"]},"searchPartnerVersions":{"cmd":{"6.6.0":"6.6.0","6.5.3":"6.6.0","6.5.2":"6.6.0","6.5.1":"6.6.0","6.5.0":"6.5.0","6.2.1":"6.5.0","6.2.0":"6.5.0","6.0.2":"6.5.0","6.0.1":"6.5.0","6.0.0":"6.5.0","5.1.4":"6.5.0","5.1.3":"6.5.0","5.1.2":"6.5.0","5.1.1":"6.5.0","5.1.0":"6.5.0","5.0.1":"6.5.0","5.0.0":"6.5.0","4.2.6":"6.5.0","4.1.3":"6.5.0","4.0.7":"6.5.0","3.4.0":"6.5.0"}},"navTreeName":"Guides","myId":"core_concepts/gestures","rootPath":"../../","pageName":"Gestures","docsRootPath":"../../../../"};
+    </script>
+    <!--[if IE 8]>
+    <script type='text/javascript'>
+        isIE8 = true;
+    </script>
+    <![endif]-->
+    <script type="text/javascript">
+        if (!isIE8) {
+            document.write('<script type=\"text/javascript\" src=\"../../../../assets/js/prism.js\"><\/script>');
+        }
+        if (DocsApp.meta.hasGuides) {
+            document.write('<script type=\"text/javascript\" src=\"../../../../assets/js/extjs-6.2.0-guidesTree.js\"><\/script>');
+        }
+        if (DocsApp.meta.hasApi) {
+            document.write('<script type=\"text/javascript\" src=\"../../../../assets/js/extjs-6.2.0-apiTree.js\"><\/script>');
+        }
+    </script>
+    <script type="text/javascript" src="../../../../assets/js/ace.js"></script>
+    <script type="text/javascript" src="../../../../assets/js/create-app-html-app.js"></script>
+    <script type="text/javascript" src="../../../../assets/js/productMenu.js"></script>
+
+    <div id="help-wrap">
+        <div class="help-header">
+            Docs Help
+            <div id="help-close" class="icon-btn">
+                <i class="fa fa-close"></i>
+            </div>
+        </div>
+        <div class="classText">
+            <div class="toc classMeta">
+                <h2>Contents</h2>
+                <a class="toc-page-h2" href="#terms-icons-and-labels">Terms, Icons, and Labels</a>
+                <a class="toc-page-h3" href="#access-levels">Access Levels</a>
+                <a class="toc-page-h3" href="#member-types">Member Types</a>
+                <a class="toc-page-h3" href="#member-syntax">Member Syntax</a>
+                <a class="toc-page-h3" href="#member-flags">Member Flags</a>
+                <a class="toc-page-h3" href="#class-icons">Class Icons</a>
+                <a class="toc-page-h3" href="#member-icons">Member Icons</a>
+                <a class="toc-page-h2" href="#navigation-and-features">Navigation and Features</a>
+                <a class="toc-page-h3" href="#class-member-quick-nav-menu">Class Member Quick-Nav Menu</a>
+                <a class="toc-page-h3" href="#getter-and-setter-methods">Getter and Setter Methods</a>
+                <a class="toc-page-h3" href="#history-bar">History Bar</a>
+                <a class="toc-page-h3" href="#search-and-filters">Search and Filters</a>
+                <a class="toc-page-h3" href="#api-doc-class-metadata">API Doc Class Metadata</a>
+                <a class="toc-page-h3" href="#expanding-and-collapsing-examples-and-class-members">Expanding and Collapsing Examples and Class Members</a>
+                <a class="toc-page-h3" href="#desktop-vs-mobile-view">Desktop -vs- Mobile View</a>
+                <a class="toc-page-h3" href="#viewing-the-class-source">Viewing the Class Source</a>
+            </div>
+            <h2 id="terms-icons-and-labels">Terms, Icons, and Labels</h2>
+            <p>Many classes have shortcut names used when creating (instantiating) a class with a
+                configuration object.  The shortcut name is referred to as an <code>alias</code> (or <code>xtype</code> if the
+                class extends Ext.Component).  The alias/xtype is listed next to the class name of
+                applicable classes for quick reference.</p>
+            <h3 id="access-levels">Access Levels</h3>
+            <p>Framework classes or their members may be specified as <code>private</code> or <code>protected</code>.  Else,
+                the class / member is <code>public</code>.  <code>Public</code>, <code>protected</code>, and <code>private</code> are access
+                descriptors used to convey how and when the class or class member should be used.</p>
+            <ul>
+                <li><p><strong>Public</strong> classes and class members are available for use by any other class or
+                    application code and may be relied upon as a stable and persistent within major product
+                    versions.  Public classes and members may safely be extended via a subclass.</p>
+                </li>
+                <li><p><strong>Protected</strong> class members are stable <code>public</code> members intended to be used by the
+                    owning class or its subclasses.  Protected members may safely be extended via a subclass.</p>
+                </li>
+                <li><p><strong>Private</strong> classes and class members are used internally by the framework and are not
+                    intended to be used by application developers.  Private classes and members may change or
+                    be omitted from the framework at any time without notice and should not be relied upon in
+                    application logic.</p>
+                </li>
+            </ul>
+            <h3 id="member-types">Member Types</h3>
+            <ul>
+                <li><strong>Config</strong> - The configuration options for a class.</li>
+                <li><strong>Property</strong> - Set once a class is instantiated. *See Read Only below.</li>
+                <li><strong>Method</strong> - Actions that can be performed by a class.  Methods should be read as
+                    instance methods and can only be called from a instance of a given class.  Static methods
+                    that can be called directly from the class itself will have a <code>static</code> label next to the
+                    method name.  *See Static below.</li>
+                <li><strong>Event</strong> - Events are specific to the framework event system allowing for classes to
+                    programmatically raise an event to be handled by one or more event handler methods.  DOM
+                    events, while handled by the framework event system, are not specifically described
+                    within the API documentation.  *For DOM events refer to the
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Events">event reference</a> page from MDN.</li>
+                <li><strong>Theme Variable</strong> - Variables used by the visual theme engine employed by the
+                    framework.</li>
+                <li><strong>Theme Mixin</strong> - Functions used by the visual theme engine employed by the framework
+                    and may use values set in various Theme Variables.</li>
+            </ul>
+            <h3 id="member-syntax">Member Syntax</h3>
+            <p>Below is an example class member that we can disect to show the syntax of a class member
+                (the lookupComponent method as viewed from the Ext.button.Button class in this case).</p>
+            <div style="position: relative;" class="show-inherited show-protected members">
+                <div style="border: 1px solid #E4E4E4;" class="classmembers member-protected isNotStatic isInherited member-expanded" data-member-name="lookupComponent">
+                    <div class="collapse-toggle">
+                        <i class="fa fa-caret-right"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="source-class"><a href="javascript:void(0);">Ext.container.Container</a><div class="viewSource"><a href="javascript:void(0);"></a><a target="_blank" href="javascript:void(0);">view source</a></div></div>
+                    <div class="member-header">
+                        <a href="javascript:void(0);" class="member-name-link"><span data-ref="method-lookupComponent" class="member-name"><strong>lookup</strong>Component</span></a>
+                        <span class="params-list"> ( item )</span> : <span class="memberType">Ext.Component</span>
+                        <div class="member-tags"><span class="protected">protected</span></div>
+                    </div>
+                    <p>Called when a raw config object is added to this container either during initialization of the <a href="javascript:void(0);">items</a> config,
+                        or when new items are <a href="javascript:void(0);">added), or {@link #insert inserted</a>.</p>
+                    <p>This method converts the passed object into an instanced child component.</p>
+                    <p>This may be overridden in subclasses when special processing needs to be applied to child creation.</p>
+                    <div class="detail-header">Parameters</div>
+                    <p><span class="params-list">item</span> :
+                        <span class="memberType">&nbsp;Object</span>
+                    </p>
+                    <div class="params-desc"><p>The config object being added.</p></div>
+                    <div class="detail-header">Returns</div>
+                    <span style="margin-left:12px;" class="memberType">Ext.Component</span>
+                    <div class="return-desc"><p>The component to be added.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <p>Let's look at each part of the member row:</p>
+            <ul>
+                <li><strong>Expand/Collapse</strong> - On the left-hand size of the member row is a control used to
+                    expand and collapse each member row to show / hide member details.</li>
+                <li><strong>Member Name</strong> - The name of the class member (<code>lookupComponent</code> in this example)</li>
+                <li><strong>Method Param</strong> - Any required or optional params used by a method (or passed to an
+                    event handler method) will be listed next to the method name within parenthesis
+                    (<code>( item )</code> in this example)</li>
+                <li><strong>Return type</strong> - The class instance or javascript object returned by the method or
+                    property (<code>Ext.Component</code> in this case).  This may be omitted for methods that do not
+                    return anything other than <code>undefined</code> or may display as multiple possible values
+                    separated by a forward slash <code>/</code> signifying that what is returned may depend on the
+                    results of the method call (i.e. a method may return a Component if a get method calls is
+                    successful or <code>false</code> if unsuccessful which would be displayed as
+                    <code>Ext.Component/Boolean</code>).</li>
+                <li><strong>Flags</strong> - Any flags applicable to the member will be displayed next (<code>PROTECTED</code> in
+                    this example - see the Flags section below)</li>
+                <li><strong>Member Origin</strong> - On the right-hand side of the member row is the class where the
+                    member was initially described (<code>Ext.container.Container</code> in this example).  The source
+                    class will be displayed as a blue link if the member originates from the current class
+                    and gray if it is inherited from an ancestor or mixed-in class.</li>
+                <li><strong>Member Source</strong> - On the right-hand side below the member origin class is a link to
+                    view the member's source (<code>view source</code> in the example)</li>
+                <li><strong>Params List</strong> - Each param for a class method will be listed using the same name
+                    found above in parenthesis, the type of class or object expected, and a description of
+                    the param (<code>item : Object</code> in the example).</li>
+                <li><strong>Returns</strong> - If a class returns a value other than <code>undefined</code> a "Returns" section
+                    will note the type of class or object returned and a description (<code>Ext.Component</code> in the
+                    example)</li>
+                <li><strong>Since</strong> (<em>not shown in the example</em>) - Some members will show which version of the
+                    product the member was first introduced (i.e. <code>Available since 3.4.0</code> - <em>not pictured in
+                        the example</em>) just after the member description</li>
+                <li><strong>Default</strong> (<em>not shown in the example</em>) - Configs often show the default config value
+                    to be applied to a class instance if not overridden (i.e. <code>Defaults to: false</code>)</li>
+            </ul>
+            <h3 id="member-flags">Member Flags</h3>
+            <p>The API documentation uses a number of flags to further commnicate the class member's
+                function and intent.  The label may be represented by a text label, an abbreviation, or
+                an icon.</p>
+            <ul>
+                <li><strong>Required</strong> - Required config when instantiating a class</li>
+                <li><strong>Bindable</strong> - The config has a setter which allows this config to be set via ViewModel
+                    binding</li>
+                <li><strong>Read Only</strong> - The property may be read, but cannot be used to configure /
+                    re-configure a class instance at runtime</li>
+                <li><strong>Singleton</strong> - Singleton classes are instantiated immediately once defined and may not
+                    be instantiated manually</li>
+                <li><strong>Static</strong> - A static method or property is a method or property belonging to the class
+                    itself, not an instance of the class</li>
+                <li><strong>Chainable</strong> - Refers to methods that return the class instance back when called.<br>This enables chained method calls like: <code>classInstance.method1().method2().etc();</code></li>
+                <li><strong>Deprecated</strong> - A class or member that is scheduled for removal in a future
+                    framework version and is provided in the current version for backwards compatibility.<br>Deprecated classes and members will have a message directing you to the preferred class /
+                    method going forward.</li>
+                <li><strong>Removed</strong> - A removed class or member that exists in documentation only as a
+                    reference for users upgrading between framework versions</li>
+                <li><strong>Template</strong> - A method defined within a base class designed to be overridden by
+                    subclasses</li>
+                <li><strong>Abstract</strong> - A class or member may be be defined as abstract.  Abstract classes and
+                    members establish a class structure and provide limited, if any, code.  Class-specific
+                    code will be furnished via overrides in subclasses.</li>
+                <li><strong>Preventable</strong> - Events marked preventable will not fire if <code>false</code> is returned from
+                    an event handler</li>
+            </ul>
+            <h3 id="class-icons">Class Icons</h3>
+            <p><span class="icon-demo class-icon fa fa-cube"></span> - Indicates a framework class  </p>
+            <p><span class="icon-demo singleton-icon fa fa-cube"></span> - A singleton framework class. *See the
+                singleton flag for more information  </p>
+            <p><span class="icon-demo component-icon fa fa-gear"></span> - A component-type framework class (any
+                class within the Ext JS framework that extends Ext.Component)  </p>
+            <p><span class="icon-demo display-new"></span> - Indicates that the class, member, or guide
+                is new in the currently viewed version</p>
+            <h3 id="member-icons">Member Icons</h3>
+            <p><span class="icon-demo fa fa-cubes"></span> - Indicates a class member of type <code>config</code>  </p>
+            <p><span class="icon-demo fa fa-book"></span> - Indicates a class member of type <code>property</code>  </p>
+            <p><span class="icon-demo fa fa-object-group"></span> - Indicates a class member of type
+                <code>method</code>  </p>
+            <p><span class="icon-demo fa fa-bolt"></span> - Indicates a class member of type <code>event</code>  </p>
+            <p><span class="icon-demo fa fa-paint-brush"></span> - Indicates a class member of type
+                <code>theme variable</code>  </p>
+            <p><span class="icon-demo fa fa-tint"></span> - Indicates a class member of type
+                <code>theme mixin</code>  </p>
+            <p><span class="icon-demo display-new"></span> - Indicates that the class, member, or guide
+                is new in the currently viewed version</p>
+            <h2 id="navigation-and-features">Navigation and Features</h2>
+            <h3 id="class-member-quick-nav-menu">Class Member Quick-Nav Menu</h3>
+            <p>Just below the class name on an API doc page is a row of buttons corresponding to the
+                types of members owned by the current class.  Each button shows a count of members by
+                type (this count is updated as filters are applied).  Clicking the button will navigate
+                you to that member section.  Hovering over the member-type button will reveal a popup
+                menu of all members of that type for quick navigation.</p>
+            <h3 id="getter-and-setter-methods">Getter and Setter Methods</h3>
+            <p>Getting and setter methods that correlate to a class config option will show up in the
+                methods section as well as in the configs section of both the API doc and the member-type
+                menus just beneath the config they work with.  The getter and setter method documentation
+                will be found in the config row for easy reference.</p>
+            <h3 id="history-bar">History Bar</h3>
+            <p>Your page history is kept in localstorage and displayed (using the available real estate)
+                just below the top title bar.  By default, the only search results shown are the pages
+                matching the product / version you're currently viewing.  You can expand what is
+                displayed by clicking on the <span class="icon-demo history-config"></span> button on the
+                right-hand side of the history bar and choosing the "All" radio option.  This will show
+                all recent pages in the history bar for all products / versions.</p>
+            <p>Within the history config menu you will also see a listing of your recent page visits.
+                The results are filtered by the "Current Product / Version" and "All" radio options.
+                Clicking on the <span class="icon-demo history-clear"></span> button will clear the history bar as
+                well as the history kept in local storage.</p>
+            <p>If "All" is selected in the history config menu the checkbox option for "Show product
+                details in the history bar" will be enabled.  When checked, the product/version for each
+                historic page will show alongside the page name in the history bar.  Hovering the cursor
+                over the page names in the history bar will also show the product/version as a tooltip.</p>
+            <h3 id="search-and-filters">Search and Filters</h3>
+            <p>Both API docs and guides can be searched for using the search field at the top of the
+                page.</p>
+            <p>On API doc pages there is also a filter input field that filters the member rows
+                using the filter string.  In addition to filtering by string you can filter the class
+                members by access level, inheritance, and read only.  This is done using the checkboxes at the top of
+                the page.</p>
+            <p>The checkbox at the bottom of the API class navigation tree filters the class list to
+                include or exclude private classes.</p>
+            <p>Clicking on an empty search field will show your last 10 searches for quick navigation.</p>
+            <h3 id="api-doc-class-metadata">API Doc Class Metadata</h3>
+            <p>Each API doc page (with the exception of Javascript primitives pages) has a menu view of
+                metadata relating to that class.  This metadata view will have one or more of the
+                following:</p>
+            <ul>
+                <li><strong>Alternate Name</strong> - One or more additional class name synonymns (in Ext JS 6.0.0 the
+                    <code>Ext.button.Button</code> class has an alternate class name of <code>Ext.Button</code>).  Alternate class
+                    names are commonly maintained for backward compatibility.</li>
+                <li><strong>Hierarchy</strong> - The hierararchy view lists the inheritance chain of the current class
+                    up through its ancestor classes up to the root base class.</li>
+                <li><strong>Mixins</strong> - A list of classes that are mixed into the current class</li>
+                <li><strong>Inherited Mixins</strong> - A list of classes that are mixed into an ancestor of the current
+                    class</li>
+                <li><strong>Requires</strong> - All classes required to be defined for the class to be instantiated</li>
+                <li><strong>Uses</strong> - A list of classes potentially used by the class at some point in its
+                    lifecycle, but not necessarily requried for the class to initially be instantiated</li>
+                <li><strong>Subclasses</strong> - Classes that extend the current class</li>
+            </ul>
+            <h3 id="expanding-and-collapsing-examples-and-class-members">Expanding and Collapsing Examples and Class Members</h3>
+            <p>Runnable examples (Fiddles) are expanded on a page by default.  You can collapse and
+                expand example code blocks individually using the arrow on the top-left of the code
+                block.  You can also toggle the collapse state of all examples using the toggle button on
+                the top-right of the page.  The toggle-all state will be remembered between page loads.</p>
+            <p>Class members are collapsed on a page by default.  You can expand and collapse members
+                using the arrow icon on the left of the member row or globally using the expand /
+                collapse all toggle button top-right.</p>
+            <h3 id="desktop-vs-mobile-view">Desktop -vs- Mobile View</h3>
+            <p>Viewing the docs on narrower screens or browsers will result in a view optimized for a
+                smaller form factor.  The primary differences between the desktop and "mobile" view are:</p>
+            <ul>
+                <li>Global navigation will be located in a menu on the left-hand side accessible via the
+                    hamburger menu icon.  The menu houses the following (on most pages):<ul>
+                        <li>The name of the current product (as a link to the product landing page)</li>
+                        <li>The Sencha icon used to navigate back to the documentation home page</li>
+                        <li>The product menu drop-down button</li>
+                        <li>Tabs of navigation trees for the API docs and guides</li>
+                    </ul>
+                </li>
+                <li>Current context navigation and tools is located on the right-hand side accessible via
+                    the gear icon.  The context menu houses teh following:<ul>
+                        <li>The global search input field</li>
+                        <li>(<em>API doc</em>) A "Filters" tab with the member filter, expand / collapse all examples
+                            button, expand / collapse all member rows button, the access level filter checkboxes,
+                            and the counts of each member</li>
+                        <li>(<em>API doc</em>) A "Related Classes" tab containing the menu of metadata related to the
+                            current class</li>
+                        <li>(<em>Guides</em>) The table of contents for the guide</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="viewing-the-class-source">Viewing the Class Source</h3>
+            <p>The class source can be viewed by clicking on the class name at the top of an API doc
+                page.  The source for class members can be viewed by clicking on the "view source" link
+                on the right-hand side of the member row.</p>
+    
+        </div>
+    </div>
+
+    <div id="header">
+        <div class="home-link">
+            <a href="http://docs.sencha.com"><span class="fa fa-book"></span></a>
+        </div>
+        <div class="logo">
+            <a href="https://www.sencha.com"><img height="32" src="../../../../assets/images/sencha_logo_thumb.png"/></a>
+        </div>
+        <span id="mobile-main-nav-menu-btn" class="fa fa-bars"></span>
+        <span data-tip="Product / Version Menu" class="fa fa-angle-down product-menu-btn product-menu-btn-wrap tooltip-tl-bl tooltip landing-product-menu-btn">
+            <div class="callout callout-b"></div>
+        </span>
+            <div class="page-title">Gestures</div>
+
+        <span id="mobile-context-menu-btn" class="fa fa-cog"></span>
+    </div>
+
+    <div id="centerContent">
+        <div id="history-nav">
+            <span id="history-config" class="icon-btn history-config tooltip tooltip-tr-br" data-tip="Configure / Clear History">
+                <i class="fa fa-history"></i>
+                <div class="callout callout-b"></div>
+            </span>
+        </div>
+        <div id="class-tree-ct" class="class-tree">
+            <h2 class="product-header">
+                <div class="home-link">
+                    <a href="http://docs.sencha.com"><span class="fa fa-book"></span></a>
+                </div>
+                <div class="logo">
+                    <a href="https://www.sencha.com"><img src="../../../../assets/images/sencha_logo1x.png"/></a>
+                </div>
+                <a href="../../index.html">Ext JS 6.2.0 </a>
+                <span data-tip="Product / Version Menu" class="fa fa-angle-down product-menu-btn product-menu-btn-wrap tooltip tooltip-tl-bl"><div class="callout callout-b"></div></span>
+            </h2>
+            <div id="tree-header" class="pre-load">
+                <div id="hide-class-tree" class="icon-btn">
+                    <i class="fa fa-close"></i>
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <div id="tree-scroller">
+                <div id="tree" class="show-private show-protected is-tree ">
+                    <div id="tree-sub-header"></div>
+                </div>
+                    <div class="private-class-toggle-ct">
+                        <label for="private-class-toggle" class="pointer gray">Show private classes</label>
+                        <input id="private-class-toggle" type="checkbox" name="privateClassToggle" />
+                    </div>
+            </div>
+        </div>
+
+        <a href="#" id="back-to-top">
+            <div class="fa fa-angle-up"></div>
+            <br>
+            top
+        </a>
+
+        <div id="rightMembers">
+<div class="context-menu-ct">
+    <div class="context-header">
+        <div id="hide-context-menu" class="fa fa-caret-right"></div>
+    </div>
+
+    <div class="search">
+        <form autocomplete="off">
+                <div class="toolkit-search-filter-ct">
+                    <span id="modern-search-filter" class="tooltip tooltip-tr-br active" data-tip="Include Modern Search Results"><div class="callout callout-b"></div></span>
+                    <span id="classic-search-filter" class="tooltip tooltip-tr-br active" data-tip="Include Classic Search Results"><div class="callout callout-b"></div></span>
+                </div>
+    
+            <input type="text" type="search" placeholder="search" id="searchtext" tabindex="1">
+            <i id="filtersubmit" class="fa fa-search"></i>
+            <span id="help-btn" data-tip="Docs Help" class="icon-btn tooltip tooltip-tr-br"><div class="callout callout-b"></div>
+                <i class="fa fa-question fa-inverse"></i>
+            </span>
+        </form>
+    </div>
+
+    <div id="toc-context-ct">
+        <!-- context content added at runtime -->
+    </div>
+</div>
+<div class="guide-body-wrap">
+    <div class="body-wrap-inner">
+        <div id="toggleExamples" class="icon-btn tooltip tooltip-tr-br" data-collapse="Collapse All Examples" data-expand="Expand All Examples">
+            <i class="fa fa-code"></i>
+            <div class="callout callout-b"></div>
+        </div>
+        <div class="classText">
+                <div class="toc">
+                    <h2>Contents</h2>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_pointer_type">Pointer Type</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_event_propagation">Event Propagation</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_native_propagation">Native Propagation</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_gesture_recognition">Gesture Recognition</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_synthetic_propagation">Synthetic Propagation</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_stopping_propagation">Stopping Propagation</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_gesture_propagation">Gesture Propagation</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_claiming_a_gesture">Claiming a Gesture</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_browser_handled_gestures__touch_actions_">Browser-Handled Gestures (Touch Actions)</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_longpress_to_drag">Longpress to Drag</a>
+                        <a class="toc-page-h2 " href="#core_concepts-_-gestures_-_viewport_zoom">Viewport Zoom</a>
+                </div>
+            <h1 id="core_concepts-_-gestures_-_gestures">Gestures<a class="quick-link" href="#core_concepts-_-gestures_-_gestures"></a></h1>
+<p>In addition to standard <a href="./events.html">DOM events</a>, Elements also fire synthesized &quot;gesture&quot;
+events. From a browser&#39;s perspective, there are 3 primary types of pointer,
+touch, and mouse events - start, move, and end:</p>
+<table>
+    <tr>
+        <th>Event</th>
+        <th>Touch</th>
+        <th>Pointer</th>
+        <th>Mouse</th>
+    </tr>
+    <tr>
+        <th>Start</th>
+        <td>touchstart</td>
+        <td>pointerdown</td>
+        <td>mousedown</td>
+    </tr>        
+    <tr>
+        <th>Move</th>
+        <td>touchmove</td>
+        <td>pointermove</td>
+        <td>mousemove</td>
+    </tr>        
+    <tr>
+        <th>Stop</th>
+        <td>touchend</td>
+        <td>pointerup</td>
+        <td>mouseup</td>
+    </tr>    
+</table>
+
+<p>Upon interpreting the sequence and timing of these events, the framework
+can synthesize more complex events such as <code>drag</code>, <code>swipe</code>, <code>longpress</code>,
+<code>pinch</code>, <code>rotate</code>, and <code>tap</code>. Ext JS applications can listen for gesture
+events just like any other event, for example:</p>
+<pre><code class="language-javascript">Ext.get(&#39;myElement&#39;).on(&#39;longpress&#39;, handlerFunction);
+</code></pre><p>By intercepting all 3 types of events, mouse, pointer, and touch, Ext JS
+allows any gesture to respond to any type of input. This means not only
+that all gestures can be triggered using touch input, but all single-point
+gestures (<code>tap</code>, <code>swipe</code>, etc.) can be triggered using a mouse as well. This
+results in a gesture system that works seamlessly across devices regardless
+of input type.</p>
+<p>Ext JS currently supports the following gestures:</p>
+<table>
+    <tr>
+        <th>Gesture</th>
+        <th>Events</th>
+    </tr>
+    <tr>
+        <td>Tap</td>
+        <td>tap, tapcancel</td>
+    </tr>
+    <tr>
+        <td>DoubleTap</td>
+        <td>singletap, doubletap</td>
+    </tr>
+    <tr>
+        <td>LongPress</td>
+        <td>longpress</td>
+    </tr>
+    <tr>
+        <td>Drag</td>
+        <td>dragstart, drag, dragend, dragcancel</td>
+    </tr>
+    <tr>
+        <td>Swipe</td>
+        <td>swipestart, swipe, swipecancel</td>
+    </tr>
+    <tr>
+        <td>Pinch</td>
+        <td>pinchstart, pinch, pinchend, pinchcancel</td>
+    </tr>
+    <tr>
+        <td>Rotate</td>
+        <td>rotatestart, rotate, rotateend, rotatecancel</td>
+    </tr>
+    <tr>
+        <td>EdgeSwipe</td>
+        <td>edgeswipe, edgeswipestart, edgeswipeend, edgeswipecancel</td>
+    </tr>        
+</table>
+
+<h2 id="core_concepts-_-gestures_-_pointer_type">Pointer Type<a class="quick-link" href="#core_concepts-_-gestures_-_pointer_type"></a></h2>
+<p>In some cases applications need to listen for a gesture only when triggered
+by a specific type of input (mouse or touch) while ignoring the other.
+Ext JS provides a <a href="../../../../extjs/6.2.0/modern/Ext.event.Event.html#pointerType">pointerType</a> property
+on event objects for detecting the type of input that caused the event:</p>
+<pre><code class="language-javascript">el.on(&#39;drag&#39;, function(e) {
+    if (e.pointerType === &#39;touch&#39;) {
+        // only handle touch-drag, and ignore mouse-drag
+    }
+});
+</code></pre><h2 id="core_concepts-_-gestures_-_event_propagation">Event Propagation<a class="quick-link" href="#core_concepts-_-gestures_-_event_propagation"></a></h2>
+<p>Events propagate through the framework in much the same way that DOM events
+propagate naturally in a browser.  The difference is that the framework
+uses a delegated event model in order to support gesture recognition.
+This means that events are delivered to DOM elements in a separate propagation
+phase that occurs after the event has already completed propagation at the
+DOM level.</p>
+<p><img src="images/event-propagation.png" alt="Event Propagation"></p>
+<h2 id="core_concepts-_-gestures_-_native_propagation">Native Propagation<a class="quick-link" href="#core_concepts-_-gestures_-_native_propagation"></a></h2>
+<p>Event listeners that are directly attached to a DOM element will be invoked
+as the browser propagates the event through the DOM hierarchy.  While it is
+helpful to understand the mechanics of native propagation, directly-attached
+DOM listeners in Ext JS should generally be avoided for the following reasons:</p>
+<ul>
+<li>Direct listeners fire out-of sequence with other listeners</li>
+<li>Calling <code>stopPropagation</code> from a directly attached listener can prevent
+gesture recognition from occurring, and prevent the synthetic propagation
+that follows.</li>
+</ul>
+<p>In some cases, however, it may be necessary to attach a listener directly
+to a DOM element, for example, to work around an issue when using Ext JS
+together with other frameworks.  This can be done using the <code>delegated</code>
+event option.</p>
+<pre><code class="language-javascript">el.on({
+    mousedown: function() {
+        Ext.Msg.alert(&#39;mousedown fired - native capture phase&#39;);
+    },
+    // careful when using delegated: false! this can have unintended side effects
+    delegated: false,
+    // use the capture option to listen in the capture phase
+    capture: true
+});
+</code></pre><p>DOM-level propagation occurs in two phases.  First is the capture phase
+in which the event is dispatched to each element from the top of the dom,
+starting with the window object, all the way down to the element that was
+the target of the event.  After the capture phase the bubble phase occurs
+in which the event is delivered first to the target element, then to its
+ancestors until it reaches the top of the hierarchy.  By default listeners
+are fired during the bubble phase of propagation, but interested parties
+can listen in the capture phase using the <code>capture</code> event option.</p>
+<h2 id="core_concepts-_-gestures_-_gesture_recognition">Gesture Recognition<a class="quick-link" href="#core_concepts-_-gestures_-_gesture_recognition"></a></h2>
+<p>After the native event bubbles up to the window object, Ext JS performs
+gesture recognition.  It may then synthesize one or more gesture events
+which then must be propagated throughout the DOM. </p>
+<h2 id="core_concepts-_-gestures_-_synthetic_propagation">Synthetic Propagation<a class="quick-link" href="#core_concepts-_-gestures_-_synthetic_propagation"></a></h2>
+<p>After the gesture recognition step is complete, the Framework will dispatch
+the original DOM event, such as <code>mousedown</code> or <code>touchmove</code> along with any
+gesture events, such as <code>drag</code> or <code>swipe</code> that were recognized as a result
+of the DOM event.  Like native propagation, synthetic propagation also
+happens in two phases, a capture and a bubble phase.</p>
+<p>Synthetic Propagation is the default for all event listeners within the
+framework and is recommended for applications using Ext JS.   Using synthetic
+propagation ensures that the event fires in proper sequence with other events
+and avoids surprises when propagation is stopped for some reason.  Developers
+do not need to do anything to enable synthetic propagation - the following
+listener uses synthetic propagation:</p>
+<pre><code class="language-javascript">el.on(&#39;mousedown&#39;, function() {
+    Ext.Msg.alert(&#39;mousedown fired - synthetic bubble phase&#39;);
+});
+</code></pre><p>Once again, the <code>capture</code> option can be used to listen in the capture phase:</p>
+<pre><code class="language-javascript">el.on({
+    mousedown: function() {
+        Ext.Msg.alert(&#39;mousedown fired - synthetic capture phase&#39;);
+    },
+    capture: true
+});
+</code></pre><h2 id="core_concepts-_-gestures_-_stopping_propagation">Stopping Propagation<a class="quick-link" href="#core_concepts-_-gestures_-_stopping_propagation"></a></h2>
+<p>Propagation can be stopped at any point during native or synthetic propagation, in either
+the capture or bubble phase. This prevents the event from being dispatched to any elements
+that have not yet received it, and prevents any pending capture or bubble phases from executing.</p>
+<p>For example stopping propagation while the event is being dispatched to an element will
+prevent the event from bubbling up to that element’s parent:</p>
+<pre><code class="language-javascript">parentEl.on(&#39;mousedown&#39;, function() {
+    // never fires because child element in bubble phase stops propagation of mousedown
+    Ext.Msg.alert(&#39;mousedown fired on child&#39;);
+});
+
+el.on(&#39;mousedown&#39;, function(e) {
+    Ext.Msg.alert(&#39;mousedown fired on child&#39;);
+
+    // immediately stop propagating the event any further
+    e.stopPropagation();
+});
+</code></pre><p>Stopping propagation during the capture phase cancels the entire bubble phase.</p>
+<pre><code class="language-javascript">el.on({
+    mousedown: function(e) {
+        Ext.Msg.alert(&#39;mousedown - capture phase&#39;);
+
+        // stopping propagation during the capture phase causes the entire
+        // bubble phase to be skipped
+        e.stopPropagation();
+    },
+    capture: true
+});
+
+el.on(&#39;mousedown&#39;, function() {
+    // never fires because propagation of mousedown event was stopped prior to
+    // bubble phase
+    Ext.Msg.alert(&#39;mousedown - bubble phase&#39;);
+});
+</code></pre><h2 id="core_concepts-_-gestures_-_gesture_propagation">Gesture Propagation<a class="quick-link" href="#core_concepts-_-gestures_-_gesture_propagation"></a></h2>
+<p>When a gesture event is recognized it propagates through the DOM hierarchy
+along with the native event from which it was synthesized.  In some cases
+recognition of multiple gestures can occur simultaneously.  When this
+happens the gestures propagate together in a single set of capture/bubble
+phases.</p>
+<p>For example consider a DOM hierarchy where element &quot;A&quot; contains element
+&quot;B&quot;, which contains element &quot;C&quot;.  Suppose a touchmove event fires on the
+innermost element, &quot;C&quot;, and this touchmove event meets the criteria for
+both <code>drag</code> and <code>swipe</code> gestures.</p>
+<p><img src="images/element-hierarchy.png" alt="Element Hierarchy"></p>
+<p>Upon recognizing that both a <code>drag</code> and a <code>swipe</code> are occurring, the
+Gesture Publisher publishes the touchmove, dragstart, and swipestart events,
+and delivers all three events to each element in the hierarchy.</p>
+<p><img src="images/gesture-propagation.png" alt="Gesture Propagation"></p>
+<h2 id="core_concepts-_-gestures_-_claiming_a_gesture">Claiming a Gesture<a class="quick-link" href="#core_concepts-_-gestures_-_claiming_a_gesture"></a></h2>
+<p>Sometimes elements in the same hierarchy can be listening for conflicting
+gestures.  In the above example, imagine that Element A is listening for
+<code>swipe</code> and its child, element B, is listening for <code>drag</code>.   When element B
+handles the dragstart event, it may want to prevent the current gesture
+from being interpreted as a swipe, since element A’s swipe handler may
+interfere with element B’s drag handler.   To do this it must &quot;claim&quot; the
+drag gesture by invoking the claimGesture method on the event object.</p>
+<pre><code class="language-javascript">el.on(&#39;dragstart&#39;, function(e) {
+    e.claimGesture();
+});
+</code></pre><p>Once claimGesture has been invoked on the dragstart event object, the
+gesture is considered to be a <code>drag</code> gesture for the remainder of its
+duration (until the user lifts their finger or releases the mouse button).
+All events associated with the <code>swipe</code> gesture (swipestart, swipe, swipeend)
+will cease to fire.  Additionally, since the swipe event was cancelled, a
+<code>swipecancel</code> event will be delivered to each element in the propagation
+hierarchy.</p>
+<p><img src="images/claim-gesture.png" alt="Claim Gesture"></p>
+<h2 id="core_concepts-_-gestures_-_browser_handled_gestures__touch_actions_">Browser-Handled Gestures (Touch Actions)<a class="quick-link" href="#core_concepts-_-gestures_-_browser_handled_gestures__touch_actions_"></a></h2>
+<p>Browsers handle certain touch gestures automatically and perform default
+actions in response such as scrolling or zooming.  These actions are referred
+to as &quot;touch actions&quot;.  Browsers typically implement the following touch
+actions:</p>
+<table>
+    <tr>
+        <th>Gesture</th>
+        <th>Touch Action</th>
+    </tr>
+    <tr>
+        <td>drag (horizontal)</td>
+        <td>horizontal scroll</td>
+    </tr>
+    <tr>
+        <td>drag (vertical)</td>
+        <td>vertical scroll</td>
+    </tr>
+    <tr>
+        <td>pinch</td>
+        <td>zoom</td>
+    </tr>
+    <tr>
+        <td>doubletap</td>
+        <td>zoom</td>
+    </tr>
+</table>
+
+<p>Ext JS applications that implement their own handling for any of these
+gestures may need to disable one or more of the browser&#39;s default touch
+actions while the gesture is being handled.  For example a draggable
+element most likely will want to prevent scrolling of its container
+while it is being dragged.  This can be achieved by setting the 
+<a href="../../../../extjs/6.2.0/modern/Ext.dom.Element.html#setTouchAction">touchAction</a> of the element.</p>
+<pre><code class="language-javascript">// instruct the browser not to scroll while &quot;el&quot; is being dragged
+el.setTouchAction({
+    panX: false,
+    panY: false
+});
+</code></pre><p>The concept of touch action within Ext JS is modeled after the CSS
+<code>touch-action</code> property and supports the same values. Under the hood the
+framework uses CSS <code>touch-action</code> where supported (on browsers that implement
+<a href="https://www.w3.org/TR/pointerevents/" class="external-link" target="_blank">Pointer Events</a>), and emulates
+the same behavior on <a href="https://www.w3.org/TR/touch-events/" class="external-link" target="_blank">Touch Events</a>
+browsers.</p>
+<table>
+    <tr>
+        <th>CSS Name</th>
+        <th>Ext JS Name</th>
+    </tr>        
+    <tr>
+        <td>pan-x</td>
+        <td>panX</td>
+    </tr>        
+    <tr>
+        <td>pan-y</td>
+        <td>panY</td>
+    </tr>        
+    <tr>
+        <td>pinch-zoom</td>
+        <td>pinchZoom</td>
+    </tr>        
+    <tr>
+        <td>double-tap-zoom</td>
+        <td>doubleTapZoom</td>
+    </tr>        
+</table>
+
+<p>When dealing with Components one should generally avoid calling
+<code>setTouchAction</code> directly on their elements, and instead use the Component&#39;s
+<a href="../../../../extjs/6.2.0/modern/Ext.Component.html#touchAction">touchAction</a> config instead.  For example
+the following panel&#39;s main element does not allow the browser to vertically
+scroll, and its body element does not allow pinch-to-zoom or vertical scroll
+since it inherits the touchAction of its parentNode via the DOM.</p>
+<pre><code class="language-javascript">Ext.create(&#39;Ext.panel.Panel&#39;, {
+    touchAction: {
+        panY: false,
+        body: {
+            pinchZoom: false
+        }
+    },
+    listeners: {
+        drag: function(e) {
+            // handle drag on the panel&#39;s main element
+        },
+        pinch: {
+            element: &#39;body&#39;,
+            fn: function(e) {
+                // handle pinch on the panel&#39;s body element
+            }
+        }
+    }
+});
+</code></pre><h2 id="core_concepts-_-gestures_-_longpress_to_drag">Longpress to Drag<a class="quick-link" href="#core_concepts-_-gestures_-_longpress_to_drag"></a></h2>
+<p>On touch devices, it can sometimes be difficult to determine if a touch
+should scroll or drag an object. A common way to determine the intent is
+a time threshold. Press on the element for long enough and the gesture
+transforms into a drag instead of a scroll. This can now be accomplished
+using the new <code>startDrag</code> method available on <code>longpress</code> events.</p>
+<pre><code class="language-javascript">el.on(&#39;longpress&#39;, function(e) {
+    e.startDrag();
+});
+</code></pre><p>On <a href="https://www.w3.org/TR/pointerevents/" class="external-link" target="_blank">Pointer Events</a> browsers (IE
+and Edge) one must also set the appropriate touch action on the element
+to prevent the browser from scrolling while the element is being dragged:</p>
+<pre><code class="language-javascript">el.setTouchAction({
+    panX: false,
+    panY: false
+});
+</code></pre><p>On <a href="https://www.w3.org/TR/touch-events/" class="external-link" target="_blank">Touch Events</a> browsers (Chrome
+and Safari) it is not necessary to configure the touch action of the element
+in order to prevent scrolling.  Instead, one could call <code>preventDefault</code>
+on the drag event object to prevent scrolling from occurring:</p>
+<pre><code class="language-javascript">el.on(&#39;drag&#39;, function(e) {
+    e.preventDefault();
+});
+</code></pre><p>While the <code>preventDefault</code> approach to preventing scrolling does not work
+on Pointer Events browsers, on Touch Events browsers it has the advantage
+of allowing the determination of whether or not to scroll to be made
+at run-time, rather than having to specify a touch action up front.
+For apps that only need to support Touch Events browsers this can
+be a useful technique, however, for cross-platform apps one must use
+<code>touchAction</code> to prevent scrolling.</p>
+<h2 id="core_concepts-_-gestures_-_viewport_zoom">Viewport Zoom<a class="quick-link" href="#core_concepts-_-gestures_-_viewport_zoom"></a></h2>
+<p>This guide assumes that viewport zoom is enabled in your app.  This is
+typically done by adding the following meta tag to your html page:</p>
+<pre><code class="language-javascript">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes&quot;&gt;
+</code></pre><p>Applications that wish to disable viewport zoom should replace that
+meta tag with the following:</p>
+<pre><code class="language-javascript">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;&gt;
+</code></pre><p>We recommend always enabling viewport zoom, as it improves accessibility
+for users that are visually impaired.</p>
+
+        </div>
+    </div>
+    <div id="footer">
+        <p class="di">
+            <a href="https://www.facebook.com/senchainc/" target="_blank"><img class="social" src="../../../../assets/images/fb.png"/></a>
+            <a href="https://www.linkedin.com/company/sencha-inc" target="_blank"><img class="social" src="../../../../assets/images/in.png"/></a>
+            <a href="https://twitter.com/Sencha" target="_blank"><img class="social" src="../../../../assets/images/twt.png"/></a>
+            Ext JS   | <a href='https://www.sencha.com/legal/terms-of-use/' target='_blank'>Terms of Use</a>
+        </p>
+    </div>
+</div>        </div>
+    </div>
+
+    <h2 class="product-header">
+        <a href="../../index.html">Ext JS 6.2.0 </a>
+        <span data-tip="Product / Version Menu" class="header-product-title product-menu-btn-wrap tooltip tooltip-tl-bl">
+            <span class="fa fa-angle-down product-menu-btn"></span>
+            <div class="callout callout-b"></div>
+        </span>
+        <div id="peekaboo-input" class="peekaboo-input dn">
+            <input type="text" id="mobile-input" />
+        </div>
+    </h2>
+
+    <div id="product-tree-ct" class="hide">
+        <div id="product-version-tree-ct" class="hide"></div>
+    </div>
+
+    <div id="historyConfigPanel">
+        <div class="history-type-selector">
+            <input id="historyTypeCurrent" type="radio" name="historyType" value="current" checked="true" />
+            <label for="historyTypeCurrent">Current Product / Version</label><br>
+            <input id="historyTypeAll" type="radio" name="historyType" value="all" />
+            <label for="historyTypeAll">All</label><br>
+            <div id="history-label-toggle" class="relative ml2 o-50">
+                <input id="history-all-labels" type="checkbox" checked="true" />
+                <label for="history-all-labels">Show product details in the history bar</label>
+                <div class="mask"></div>
+            </div>
+            <span id="history-clear" class="icon-btn history-clear tooltip tooltip-tr-br" data-tip="Clear History">
+                <i class="fa fa-trash"></i>
+                <div class="callout callout-b"></div>
+            </span>
+        </div>
+        <div id="history-full-list" class="overflow-y-auto"></div>
+    </div>
+
+    <div id="search-history-panel"></div>
+
+    <div id="modal-placeholder" class="modal">
+        <span id="modal-close" >&times;</span>
+        <img id="modal-content">
+        <div id="modal-caption"></div>
+    </div>
+
+
+</body>
+    <script type="text/javascript" src="../../../../assets/js/extjs-6.2.0-apiSearch.js"></script>
+    <script type="text/javascript" src="../../../../assets/js/extjs-6.2.0-guideSearch.js"></script>
+<!--[if lt IE 9 ]>
+<script type="text/javascript" src="../../../../assets/js/media-query-poly.js"></script>
+<style>
+    span.da-inline-fiddle-nav-fiddle.x-fa.fa-play-circle {
+        display: none;
+    }
+</style>
+<![endif]-->
+<script>
+    if (navigator.userAgent.indexOf("Safari") > -1) {
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload()
+            }
+        };
+    }
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1396058-28', 'auto');
+    ga('send', 'pageview');
+</script>
+</html>
